@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mass Update Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b8cee",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "success": "#28a745",
+              "error": "#dc3545",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 px-6 sm:px-10 py-3 sticky top-0 z-10 backdrop-blur-sm">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path></svg>
+</div>
+<h2 class="text-lg font-bold tracking-tight">Mass Update Portal</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAq5mJ8kLOSeLgow53cZVEwUcv0fHsJdOBuxfc442s08uQtDtZbsKB5uJ2c5Mz59R8ebrFv-ryS3-2qgBkiVALWPhDsPr0v3MBGytY-rg20fWaQfyp2bN_awgkEbRqJCgHL7DsCrDwbUp-zxfpcVYtUy1tuqsF0if43jiJpku4-d9n8R5XYcZ8SW0FGRHiyZlQAHfMlV8s0u7ZEMTu_8wmAKEITJG6XO8uu8SF6jQu9C-DWGMY_uOCTkapubTEFTlv873UdHpXoKVle");'></div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8">
+<div class="w-full max-w-3xl flex-1">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 p-4 mb-6">
+<div class="flex flex-col gap-2">
+<p class="text-slate-900 dark:text-white text-3xl sm:text-4xl font-black tracking-tighter">Initiate New Update Job</p>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal">Upload your completed template file to start a new update process.</p>
+</div>
+</div>
+<div class="flex flex-col gap-6 p-4">
+<!-- EmptyState / Upload Area -->
+<div class="flex flex-col items-center gap-4 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900/50 px-6 py-12 text-center transition-colors hover:border-primary dark:hover:border-primary">
+<div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-4xl">cloud_upload</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<p class="text-slate-900 dark:text-white text-lg font-bold tracking-tight">Drag &amp; Drop Your File Here</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal">or click to browse</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-bold tracking-wide hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="truncate">Select File</span>
+</button>
+</div>
+<!-- MetaText & BodyText -->
+<div class="flex flex-col items-center gap-2">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal text-center">Accepts .XLSX and .CSV files only. Max file size: 25MB.</p>
+<a class="text-primary text-sm font-normal underline hover:no-underline" href="#">Don't have the template? Download it here.</a>
+</div>
+<!-- File Information Display (Post-selection state) -->
+<div class="space-y-4">
+<div class="flex items-center justify-between gap-4 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4">
+<div class="flex items-center gap-4">
+<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-medium text-slate-900 dark:text-white">mass_update_template_final.xlsx</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">1.2 MB</p>
+</div>
+</div>
+<button class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<!-- Progress Indicator -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-sm">
+<span class="font-medium text-slate-700 dark:text-slate-300">Uploading...</span>
+<span class="text-slate-500 dark:text-slate-400">75%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="flex justify-end pt-4">
+<button class="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-primary text-white text-base font-bold shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50">
+<span class="truncate">Start Update Job</span>
+</button>
+</div>
+<!-- Feedback/Notification Area -->
+<div class="space-y-4 pt-4">
+<!-- Success Message -->
+<div class="flex items-start gap-4 rounded-lg bg-success/10 p-4 text-success">
+<span class="material-symbols-outlined mt-0.5">check_circle</span>
+<div class="flex flex-col text-sm">
+<p class="font-bold">Upload complete</p>
+<p>Your job <span class="font-mono bg-success/10 rounded px-1 py-0.5">#J-1701D</span> has been initiated. You will be notified upon completion.</p>
+</div>
+</div>
+<!-- Error Message -->
+<div class="flex items-start gap-4 rounded-lg bg-error/10 p-4 text-error">
+<span class="material-symbols-outlined mt-0.5">error</span>
+<div class="flex flex-col text-sm">
+<p class="font-bold">Invalid file format</p>
+<p>Please upload a .CSV or .XLSX file.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

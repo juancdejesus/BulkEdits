@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bulk Updater Portal - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b8cee",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "success": "#28A745",
+              "warning": "#FFC107",
+              "error": "#DC3545",
+              "neutral-subtle": "#F5F7FA",
+              "neutral-text-secondary": "#6C757D",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#101922] dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-gray-700 bg-white dark:bg-background-dark px-6 lg:px-10 py-3 sticky top-0 z-10">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] text-[#0d141b] dark:text-white">Bulk Updater Portal</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">New Bulk Update</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture of Jane Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAL05flY4UJwe8AJq3Yzy6hZV43E8PFFuN36LhwhHDktH0SGpgGPUtZwa6FT4ep-9hPuUovp01_1x61PY9lhzs6q2Ay9jvHegViuPNNjjSMuAaT5TfOc6PAbkzpBR54xu0Mo-p4SC7MR3REYU7R3XhH_Mbdne1LYnFFHlALVmAiYOc3RTGPXBLUbLoiwz8NinSJxGTxQro1ihiKDWAq0SghGpl2O5LG8nslHcrLqsn2lqVU3mq4RU7HAJv1_18ZFOy2-_pUoolPNTJv");'></div>
+<div class="text-sm font-medium text-right hidden md:block">
+<p class="text-[#0d141b] dark:text-white">Jane Doe</p>
+<p class="text-neutral-text-secondary dark:text-gray-400 text-xs">Administrator</p>
+</div>
+</div>
+</div>
+</header>
+<main class="px-4 sm:px-6 lg:px-10 flex flex-1 justify-center py-8">
+<div class="layout-content-container flex flex-col w-full max-w-7xl flex-1">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 p-4">
+<div class="flex min-w-72 flex-col gap-3">
+<p class="text-[#0d141b] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Dashboard</p>
+<p class="text-neutral-text-secondary dark:text-gray-400 text-base font-normal leading-normal">Overview of recent update jobs and system activity.</p>
+</div>
+</div>
+<!-- System Alert -->
+<div class="p-4">
+<div class="flex items-center gap-4 rounded-lg bg-yellow-100 dark:bg-yellow-900/40 p-4 border border-yellow-300 dark:border-yellow-700">
+<span class="material-symbols-outlined text-yellow-600 dark:text-yellow-400">info</span>
+<p class="text-yellow-800 dark:text-yellow-200 text-sm">System maintenance scheduled for 10 PM tonight. Some services may be temporarily unavailable.</p>
+</div>
+</div>
+<!-- Stats -->
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800/50">
+<p class="text-[#0d141b] dark:text-gray-300 text-base font-medium leading-normal">Total Jobs Today</p>
+<p class="text-[#0d141b] dark:text-white tracking-light text-3xl font-bold leading-tight">25</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-success">arrow_upward</span>
+<p class="text-success text-sm font-medium leading-normal">+5% from yesterday</p>
+</div>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800/50">
+<p class="text-[#0d141b] dark:text-gray-300 text-base font-medium leading-normal">Total Jobs This Week</p>
+<p class="text-[#0d141b] dark:text-white tracking-light text-3xl font-bold leading-tight">142</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-success">arrow_upward</span>
+<p class="text-success text-sm font-medium leading-normal">+2% from last week</p>
+</div>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800/50">
+<p class="text-[#0d141b] dark:text-gray-300 text-base font-medium leading-normal">Successful Updates (Today)</p>
+<p class="text-[#0d141b] dark:text-white tracking-light text-3xl font-bold leading-tight">23</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-success">arrow_upward</span>
+<p class="text-success text-sm font-medium leading-normal">+8% from yesterday</p>
+</div>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800/50">
+<p class="text-[#0d141b] dark:text-gray-300 text-base font-medium leading-normal">Failed Updates (Today)</p>
+<p class="text-[#0d141b] dark:text-white tracking-light text-3xl font-bold leading-tight">2</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-error">arrow_downward</span>
+<p class="text-error text-sm font-medium leading-normal">-1% from yesterday</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 p-4">
+<div class="lg:col-span-2">
+<!-- SectionHeader for Recent Jobs -->
+<div class="flex justify-between items-center pb-3 pt-5">
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Recent Jobs</h2>
+<div class="flex items-center gap-2 text-sm text-neutral-text-secondary dark:text-gray-400">
+<span class="material-symbols-outlined text-base">refresh</span>
+<span>Last updated: 1 minute ago</span>
+</div>
+</div>
+<!-- Recent Jobs Table -->
+<div class="bg-white dark:bg-gray-800/50 rounded-lg border border-slate-200 dark:border-gray-700 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="bg-slate-50 dark:bg-gray-800 text-xs uppercase text-neutral-text-secondary dark:text-gray-400">
+<tr>
+<th class="px-6 py-3" scope="col">Job ID</th>
+<th class="px-6 py-3" scope="col">Task Name</th>
+<th class="px-6 py-3" scope="col">Submitted By</th>
+<th class="px-6 py-3" scope="col">Date &amp; Time</th>
+<th class="px-6 py-3" scope="col">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-800">
+<td class="px-6 py-4 font-mono text-primary dark:text-primary/90">#83241</td>
+<td class="px-6 py-4 font-medium text-[#0d141b] dark:text-white">Update User Permissions - Q4</td>
+<td class="px-6 py-4 text-neutral-text-secondary dark:text-gray-300">Jane Doe</td>
+<td class="px-6 py-4 text-neutral-text-secondary dark:text-gray-300">2023-10-27 14:30</td>
+<td class="px-6 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success/20 text-success-800 dark:bg-success/30 dark:text-success">Completed</span></td>
+</tr>
+<tr class="border-b dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-800">
+<td class="px-6 py-4 font-mono text-primary dark:text-primary/90">#83240</td>
+<td class="px-6 py-4 font-medium text-[#0d141b] dark:text-white">Deactivate Dormant Accounts</td>
+<td class="px-6 py-4 text-neutral-text-secondary dark:text-gray-300">John Smith</td>
+<td class="px-6 py-4 text-neutral-text-secondary dark:text-gray-300">2023-10-27 11:15</td>
+<td class="px-6 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-error/20 text-error-800 dark:bg-error/30 dark:text-error">Failed</span></td>
+</tr>
+<tr class="border-b dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-800">
+<td class="px-6 py-4 font-mono text-primary dark:text-primary/90">#83239</td>
+<td class="px-6 py-4 font-medium text-[#0d141b] dark:text-white">Sync Product Inventory</td>
+<td class="px-6 py-4 text-neutral-text-secondary dark:text-gray-300">Alice Johnson</td>
+<td class="px-6 py-4 text-neutral-text-secondary dark:text-gray-300">2023-10-27 09:05</td>
+<td class="px-6 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning/20 text-yellow-800 dark:bg-warning/30 dark:text-warning">In Progress</span></td>
+</tr>
+<tr class="border-b dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-800">
+<td class="px-6 py-4 font-mono text-primary dark:text-primary/90">#83238</td>
+<td class="px-6 py-4 font-medium text-[#0d141b] dark:text-white">Update Price List</td>
+<td class="px-6 py-4 text-neutral-text-secondary dark:text-gray-300">Jane Doe</td>
+<td class="px-6 py-4 text-neutral-text-secondary dark:text-gray-300">2023-10-26 17:45</td>
+<td class="px-6 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success/20 text-success-800 dark:bg-success/30 dark:text-success">Completed</span></td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-gray-800">
+<td class="px-6 py-4 font-mono text-primary dark:text-primary/90">#83237</td>
+<td class="px-6 py-4 font-medium text-[#0d141b] dark:text-white">Archive Old Records</td>
+<td class="px-6 py-4 text-neutral-text-secondary dark:text-gray-300">System</td>
+<td class="px-6 py-4 text-neutral-text-secondary dark:text-gray-300">2023-10-26 16:00</td>
+<td class="px-6 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-200 text-slate-800 dark:bg-gray-700 dark:text-gray-300">Pending</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1">
+<!-- SectionHeader for Quick Actions -->
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">Quick Actions</h2>
+<!-- TextGrid for Quick Actions -->
+<div class="flex flex-col gap-3">
+<a class="flex flex-1 gap-4 items-center rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-4 hover:bg-slate-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<div class="text-[#0d141b] dark:text-white flex items-center justify-center size-10 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">upload</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-[#0d141b] dark:text-white text-base font-bold leading-tight">Start New Update</h2>
+<p class="text-neutral-text-secondary dark:text-gray-400 text-sm font-normal leading-normal">Initiate a new bulk task</p>
+</div>
+</a>
+<a class="flex flex-1 gap-4 items-center rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-4 hover:bg-slate-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<div class="text-[#0d141b] dark:text-white flex items-center justify-center size-10 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">list_alt</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-[#0d141b] dark:text-white text-base font-bold leading-tight">View All Jobs</h2>
+<p class="text-neutral-text-secondary dark:text-gray-400 text-sm font-normal leading-normal">See the complete history</p>
+</div>
+</a>
+<a class="flex flex-1 gap-4 items-center rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-4 hover:bg-slate-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<div class="text-[#0d141b] dark:text-white flex items-center justify-center size-10 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">shield_lock</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-[#0d141b] dark:text-white text-base font-bold leading-tight">View Audit Log</h2>
+<p class="text-neutral-text-secondary dark:text-gray-400 text-sm font-normal leading-normal">Review all system events</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

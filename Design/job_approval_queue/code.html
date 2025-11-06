@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Approval Queue - Internal Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#005A9C",
+                        "background-light": "#F8F9FA",
+                        "background-dark": "#101922",
+                        "success": "#28A745",
+                        "danger": "#DC3545",
+                        "text-light": "#212529",
+                        "text-dark": "#F8F9FA",
+                        "text-muted-light": "#6c757d",
+                        "text-muted-dark": "#adb5bd",
+                        "container-light": "#FFFFFF",
+                        "container-dark": "#1a2734",
+                        "border-light": "#dee2e6",
+                        "border-dark": "#343a40",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="flex flex-col w-64 bg-container-light dark:bg-container-dark border-r border-border-light dark:border-border-dark">
+<div class="flex flex-col p-4">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Company Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNstCi-m8leVLq-RGQnFHXVOlfXbwYzAqKrR9gKvJAPilrTQEfSbpXwZ-_o7bZnrVTtzl7gIDwSdVIJWSEdUlL1JBLYWSIHq9lLQcAKfpav0dLfd32xzF8dibTsaSSZcfP_56MaLnyi62BnQkdq_1etWkFzkZASVroiD85D64H5Lc2hKESDPqA430a1vdMosvuCh5iIqKs4ky5msv8Xvb-3EJtqZMRSLLOjjS5uKScDjz_-bmotGq5P1tHqK62OX90BZ_yn796sO-6");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-light dark:text-text-dark text-base font-bold leading-normal">Internal Portal</h1>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal leading-normal">Mass Update Tool</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">dashboard</span>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">upload_file</span>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Mass Update</p>
+</a>
+<a class="flex items-center justify-between gap-3 px-3 py-2 rounded-lg bg-primary/10" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary font-bold">rule</span>
+<p class="text-primary text-sm font-bold leading-normal">Approval Queue</p>
+</div>
+<span class="flex items-center justify-center text-xs font-bold text-white bg-primary rounded-full h-5 w-5">3</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">history</span>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">History</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">settings</span>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-4">
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">account_circle</span>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">User Profile</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">logout</span>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</div>
+</aside>
+<main class="flex-1 grid grid-cols-12 gap-6 p-6 overflow-y-auto">
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-4">
+<div class="flex flex-wrap justify-between items-center gap-3">
+<div class="flex flex-col">
+<h1 class="text-text-light dark:text-text-dark text-3xl font-bold leading-tight">Approval Queue</h1>
+<p class="text-text-muted-light dark:text-text-muted-dark text-base font-normal leading-normal">Review and action pending requests.</p>
+</div>
+<button class="flex items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-base">refresh</span>
+<span class="truncate">Refresh List</span>
+</button>
+</div>
+<div class="w-full">
+<label class="flex flex-col w-full">
+<div class="flex w-full items-stretch rounded-lg h-12 bg-container-light dark:bg-container-dark border border-border-light dark:border-border-dark focus-within:ring-2 focus-within:ring-primary">
+<div class="text-text-muted-light dark:text-text-muted-dark flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-text-light dark:text-text-dark focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark px-2 text-base font-normal leading-normal" placeholder="Search by Job ID, Initiator..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex gap-2 flex-wrap">
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-primary/20 dark:bg-primary/30 px-3 hover:bg-primary/30 dark:hover:bg-primary/40 transition-colors">
+<p class="text-primary text-sm font-medium">Task Type: All</p>
+<span class="material-symbols-outlined text-primary text-base">expand_more</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-container-light dark:bg-container-dark border border-border-light dark:border-border-dark px-3 hover:bg-gray-100 dark:hover:bg-container-dark/80 transition-colors">
+<p class="text-text-light dark:text-text-dark text-sm font-medium">Date Range</p>
+<span class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark text-base">expand_more</span>
+</button>
+</div>
+<div class="flex flex-col gap-3 overflow-y-auto">
+<div class="flex flex-col gap-3 p-4 rounded-lg bg-primary/5 dark:bg-primary/10 border border-primary/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">priority_high</span>
+<h3 class="text-sm font-bold uppercase tracking-wider text-primary">New for you</h3>
+</div>
+<div class="p-4 rounded-lg border-2 border-primary bg-primary/10 cursor-pointer">
+<div class="flex justify-between items-start mb-1">
+<p class="text-sm font-bold text-primary">J12345</p>
+<div class="px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-700 dark:text-yellow-400 text-xs font-medium">Pending Approval</div>
+</div>
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Update User Permissions</p>
+<div class="flex justify-between items-center mt-2 text-sm text-text-muted-light dark:text-text-muted-dark">
+<span>Alice Johnson</span>
+<span>2023-10-27 10:15 AM</span>
+</div>
+</div>
+</div>
+<div class="px-1 pt-2">
+<h3 class="text-sm font-bold text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider">All Pending</h3>
+</div>
+<div class="p-4 rounded-lg bg-container-light dark:bg-container-dark border border-border-light dark:border-border-dark hover:border-primary/50 dark:hover:border-primary/50 cursor-pointer transition-all">
+<div class="flex justify-between items-start mb-1">
+<p class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark">J12344</p>
+<div class="px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-700 dark:text-yellow-400 text-xs font-medium">Pending Approval</div>
+</div>
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Bulk User Deactivation</p>
+<div class="flex justify-between items-center mt-2 text-sm text-text-muted-light dark:text-text-muted-dark">
+<span>Bob Williams</span>
+<span>2023-10-27 09:30 AM</span>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-container-light dark:bg-container-dark border border-border-light dark:border-border-dark hover:border-primary/50 dark:hover:border-primary/50 cursor-pointer transition-all">
+<div class="flex justify-between items-start mb-1">
+<p class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark">J12342</p>
+<div class="px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-700 dark:text-yellow-400 text-xs font-medium">Pending Approval</div>
+</div>
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Add New Products</p>
+<div class="flex justify-between items-center mt-2 text-sm text-text-muted-light dark:text-text-muted-dark">
+<span>Charlie Brown</span>
+<span>2023-10-26 04:00 PM</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-7 flex flex-col bg-container-light dark:bg-container-dark rounded-lg border border-border-light dark:border-border-dark shadow-sm">
+<div class="p-6 border-b border-border-light dark:border-border-dark">
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark">Reviewing Job #J12345: Update User Permissions</h2>
+<p class="text-text-muted-light dark:text-text-muted-dark mt-1">Submitted by Alice Johnson</p>
+</div>
+<div class="p-6 flex-grow overflow-y-auto space-y-6">
+<div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-3">Validation Summary</h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="p-4 rounded-lg bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Total Rows</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">500</p>
+</div>
+<div class="p-4 rounded-lg bg-success/10 border border-success/30">
+<p class="text-sm text-success">Valid Rows</p>
+<p class="text-2xl font-bold text-success">498</p>
+</div>
+<div class="p-4 rounded-lg bg-danger/10 border border-danger/30">
+<p class="text-sm text-danger">Invalid Rows</p>
+<p class="text-2xl font-bold text-danger">2</p>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-3">Change Details</h3>
+<div class="overflow-hidden rounded-lg border border-border-light dark:border-border-dark">
+<table class="w-full text-sm">
+<thead class="bg-background-light dark:bg-background-dark">
+<tr>
+<th class="px-4 py-2 text-left font-medium text-text-light dark:text-text-dark">User ID</th>
+<th class="px-4 py-2 text-left font-medium text-text-light dark:text-text-dark">Old Permission</th>
+<th class="px-4 py-2 text-left font-medium text-text-light dark:text-text-dark">New Permission</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-t border-border-light dark:border-border-dark">
+<td class="px-4 py-3 text-text-muted-light dark:text-text-muted-dark">user_101</td>
+<td class="px-4 py-3 text-text-light dark:text-text-dark">Read-Only</td>
+<td class="px-4 py-3 text-text-light dark:text-text-dark font-semibold">Editor</td>
+</tr>
+<tr class="border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/50">
+<td class="px-4 py-3 text-text-muted-light dark:text-text-muted-dark">user_102</td>
+<td class="px-4 py-3 text-text-light dark:text-text-dark">Read-Only</td>
+<td class="px-4 py-3 text-text-light dark:text-text-dark font-semibold">Editor</td>
+</tr>
+<tr class="border-t border-border-light dark:border-border-dark">
+<td class="px-4 py-3 text-text-muted-light dark:text-text-muted-dark">...</td>
+<td class="px-4 py-3 text-text-muted-light dark:text-text-muted-dark">...</td>
+<td class="px-4 py-3 text-text-muted-light dark:text-text-muted-dark">...</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-4 flex items-center gap-4">
+<a class="text-sm font-medium text-primary hover:underline flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-base">download</span>
+                                Download Full Change Log
+                            </a>
+<a class="text-sm font-medium text-primary hover:underline flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-base">attachment</span>
+                                View Original File
+                            </a>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/50 rounded-b-lg">
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-1.5" for="comments">Add optional comments</label>
+<textarea class="form-textarea block w-full rounded-lg border-border-light dark:border-border-dark bg-container-light dark:bg-container-dark focus:border-primary focus:ring-primary text-text-light dark:text-text-dark" id="comments" name="comments" placeholder="Provide a reason, especially for rejections..." rows="3"></textarea>
+</div>
+<div class="mt-4 flex justify-end gap-3">
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-danger text-white text-sm font-bold leading-normal tracking-wide hover:bg-danger/90 transition-colors">
+<span>Reject</span>
+</button>
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-success text-white text-sm font-bold leading-normal tracking-wide hover:bg-success/90 transition-colors">
+<span>Approve</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

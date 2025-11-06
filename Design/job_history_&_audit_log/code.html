@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audit Log - Admin Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d141b] dark:text-slate-200">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex w-64 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark p-4">
+<div class="flex flex-col gap-4">
+<div class="flex gap-3 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin Portal Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpPjRKnZQagMN5ma0Zx_dsmfvmM5xpF1TLWU_i4CwDoDp4CGObj7nCGKPHRe9Bit2ofOy6WMJNdLPQSC9pYXSOoA5p54hlncR-LSwzpkcBpn6qiawFq0TISPC0Ck91M2JHDTt8uHd_m7kuiwBmCEEoqISQ4jhlgeUEKOLmePr6OL3ifoIKE2tMridujmMYCzg7vuab8rItx4QleDKaf9l7pHZMCowYUZ4nNT1PXVipUfpFrjTfE9QehLVwdlnOKMMo9nYltrfX8J65");'></div>
+<div class="flex flex-col">
+<h1 class="text-base font-medium leading-normal text-[#0d141b] dark:text-white">Admin Portal</h1>
+<p class="text-sm font-normal leading-normal text-slate-500 dark:text-slate-400">Internal Tools</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">dashboard</span>
+<p class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">upload_file</span>
+<p class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300">Mass Updates</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary">history</span>
+<p class="text-sm font-medium leading-normal text-primary dark:text-primary">Audit Log</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">group</span>
+<p class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300">Users</p>
+</a>
+</nav>
+</div>
+<div class="mt-auto flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">settings</span>
+<p class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">logout</span>
+<p class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300">Logout</p>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-6 lg:p-8">
+<div class="w-full max-w-7xl mx-auto">
+<!-- PageHeading -->
+<header class="flex flex-wrap justify-between items-start gap-4 mb-6">
+<div class="flex flex-col gap-1">
+<h1 class="text-3xl font-bold leading-tight tracking-tight text-[#0d141b] dark:text-white">Audit Log</h1>
+<p class="text-slate-500 dark:text-slate-400">Review all changes made through the mass update portal.</p>
+</div>
+<button class="flex items-center justify-center gap-2 h-10 px-4 text-sm font-medium rounded-lg bg-primary text-white hover:bg-primary/90">
+<span class="material-symbols-outlined text-base">download</span>
+                        Export as CSV
+                    </button>
+</header>
+<!-- Accordions for Filters -->
+<div class="flex flex-col gap-4">
+<details class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 group" open="">
+<summary class="flex cursor-pointer items-center justify-between gap-6 p-4">
+<p class="text-base font-medium text-[#0d141b] dark:text-white">Filters &amp; Search</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="border-t border-slate-200 dark:border-slate-800 p-4">
+<!-- Search and Filter Controls -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- SearchBar -->
+<div class="col-span-1 md:col-span-2">
+<label class="flex flex-col w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-10">
+<div class="text-slate-500 dark:text-slate-400 flex bg-slate-100 dark:bg-slate-800 items-center justify-center pl-3 rounded-l-lg">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-sm text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-slate-100 dark:bg-slate-800 h-full placeholder:text-slate-500 dark:placeholder:text-slate-400" placeholder="Search by JobID, Field Name, etc." value=""/>
+</div>
+</label>
+</div>
+<!-- UserID Dropdown -->
+<div>
+<select class="form-select w-full h-10 rounded-lg text-sm bg-slate-100 dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary/50 text-[#0d141b] dark:text-white">
+<option>All Users</option>
+<option>user1@example.com</option>
+<option>user2@example.com</option>
+</select>
+</div>
+<!-- EntityKey Dropdown -->
+<div>
+<select class="form-select w-full h-10 rounded-lg text-sm bg-slate-100 dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary/50 text-[#0d141b] dark:text-white">
+<option>All Entities</option>
+<option>Product</option>
+<option>Customer</option>
+</select>
+</div>
+<!-- Date Range Picker -->
+<div class="col-span-1 md:col-span-2">
+<div class="relative">
+<div class="flex items-center">
+<div class="text-slate-500 dark:text-slate-400 flex bg-slate-100 dark:bg-slate-800 items-center justify-center pl-3 rounded-l-lg h-10">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<input class="form-input w-full h-10 rounded-r-lg text-sm bg-slate-100 dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary/50 text-[#0d141b] dark:text-white placeholder:text-slate-500" placeholder="Select date range" value="Oct 5, 2023 - Nov 7, 2023"/>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="col-span-1 md:col-span-2 flex items-center justify-end gap-3">
+<button class="h-10 px-4 text-sm font-medium rounded-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200">Clear All</button>
+<button class="h-10 px-4 text-sm font-medium rounded-lg bg-primary text-white hover:bg-primary/90">Apply Filters</button>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Data Table -->
+<div class="mt-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-xs text-slate-600 dark:text-slate-400 uppercase">
+<tr>
+<th class="px-6 py-3 font-medium" scope="col">Job ID</th>
+<th class="px-6 py-3 font-medium" scope="col">Timestamp</th>
+<th class="px-6 py-3 font-medium" scope="col">User</th>
+<th class="px-6 py-3 font-medium" scope="col">Entity</th>
+<th class="px-6 py-3 font-medium" scope="col">Field Changed</th>
+<th class="px-6 py-3 font-medium" scope="col">Old Value</th>
+<th class="px-6 py-3 font-medium" scope="col">New Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-mono text-primary">84521</td>
+<td class="px-6 py-4">2023-10-26 14:30:15</td>
+<td class="px-6 py-4">admin@example.com</td>
+<td class="px-6 py-4">Product</td>
+<td class="px-6 py-4">price</td>
+<td class="px-6 py-4 font-mono">19.99</td>
+<td class="px-6 py-4 font-mono">24.99</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-mono text-primary">84521</td>
+<td class="px-6 py-4">2023-10-26 14:30:15</td>
+<td class="px-6 py-4">admin@example.com</td>
+<td class="px-6 py-4">Product</td>
+<td class="px-6 py-4">status</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Pending</span></td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span></td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-mono text-primary">84519</td>
+<td class="px-6 py-4">2023-10-26 11:05:42</td>
+<td class="px-6 py-4">user@example.com</td>
+<td class="px-6 py-4">Customer</td>
+<td class="px-6 py-4">tier</td>
+<td class="px-6 py-4">Silver</td>
+<td class="px-6 py-4">Gold</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-mono text-primary">84517</td>
+<td class="px-6 py-4">2023-10-25 09:12:01</td>
+<td class="px-6 py-4">admin@example.com</td>
+<td class="px-6 py-4">Product</td>
+<td class="px-6 py-4">is_featured</td>
+<td class="px-6 py-4">false</td>
+<td class="px-6 py-4">true</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-mono text-primary">84505</td>
+<td class="px-6 py-4">2023-10-24 18:45:22</td>
+<td class="px-6 py-4">ops@example.com</td>
+<td class="px-6 py-4">Order</td>
+<td class="px-6 py-4">shipping_address</td>
+<td class="px-6 py-4 truncate max-w-xs" title="123 Old St, Sometown, ST 12345">123 Old St, Sometown...</td>
+<td class="px-6 py-4 truncate max-w-xs" title="456 New Ave, Anytown, AT 67890">456 New Ave, Anytown...</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<nav aria-label="Table navigation" class="flex items-center justify-between p-4">
+<span class="text-sm font-normal text-slate-500 dark:text-slate-400">Showing <span class="font-semibold text-slate-900 dark:text-white">1-10</span> of <span class="font-semibold text-slate-900 dark:text-white">1000</span></span>
+<div class="inline-flex items-center -space-x-px text-sm h-8">
+<a class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-slate-500 bg-white border border-slate-300 rounded-l-lg hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" href="#">Previous</a>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-slate-500 bg-white border border-slate-300 hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" href="#">1</a>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-slate-500 bg-white border border-slate-300 hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" href="#">2</a>
+<a aria-current="page" class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-primary bg-primary/10 border border-primary hover:bg-primary/20 dark:border-slate-700 dark:bg-slate-700 dark:text-white" href="#">3</a>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-slate-500 bg-white border border-slate-300 hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" href="#">...</a>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-slate-500 bg-white border border-slate-300 rounded-r-lg hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" href="#">Next</a>
+</div>
+</nav>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirm Execution Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b8cee",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "destructive": "#DC3545",
+              "warning": "#FFC107",
+              "success": "#198754"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-display">
+<!-- This div simulates the main application page in the background -->
+<div class="relative min-h-screen w-full bg-background-light dark:bg-background-dark text-[#2d3748] dark:text-slate-200">
+<header class="p-4 border-b border-slate-200 dark:border-slate-800">
+<h1 class="text-xl font-bold">Internal Admin Portal</h1>
+</header>
+<main class="p-8">
+<h2 class="text-2xl font-semibold mb-4">Data Management Dashboard</h2>
+<p>This is a placeholder for the main application content, which is now overlaid by the confirmation modal.</p>
+</main>
+</div>
+<!-- Modal backdrop and container -->
+<div aria-describedby="modal-description" aria-labelledby="modal-title" aria-modal="true" class="fixed inset-0 z-50 flex h-full w-full items-center justify-center bg-black/50 p-4" role="alertdialog">
+<!-- Modal Panel: Confirmation View -->
+<div class="flex w-full max-w-md flex-col items-center rounded-xl bg-background-light dark:bg-background-dark p-6 text-center shadow-2xl md:p-8" id="confirmation-view">
+<div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-warning/10 text-warning">
+<span class="material-symbols-outlined !text-4xl" data-icon="warning">warning</span>
+</div>
+<h1 class="text-[#0d141b] dark:text-slate-50 tracking-light text-[24px] font-bold leading-tight pb-2 pt-2" id="modal-title">Confirm Execution</h1>
+<p class="text-[#4a5568] dark:text-slate-400 text-base font-normal leading-normal pb-4" id="modal-description">
+              You are about to update <strong class="font-bold text-lg text-[#0d141b] dark:text-slate-50">2,345</strong> rows. This action is final and cannot be reversed. Please ensure you have reviewed the changes before proceeding.
+            </p>
+<div class="flex w-full flex-col items-stretch gap-3 pt-4">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-destructive text-slate-50 text-base font-bold leading-normal tracking-[0.015em] transition-colors hover:bg-destructive/90 focus:outline-none focus:ring-2 focus:ring-destructive focus:ring-offset-2 dark:focus:ring-offset-background-dark w-full">
+<span class="truncate">Execute Update</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-slate-200/80 dark:bg-slate-700/80 text-[#0d141b] dark:text-slate-50 text-base font-bold leading-normal tracking-[0.015em] transition-colors hover:bg-slate-300/80 dark:hover:bg-slate-600/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark w-full">
+<span class="truncate">Cancel</span>
+</button>
+</div>
+</div>
+<!-- Modal Panel: Success View (Initially hidden for demonstration) -->
+<!-- To display this, remove the 'hidden' class and add it to the '#confirmation-view' div -->
+<div class="hidden w-full max-w-md flex-col items-center rounded-xl bg-background-light dark:bg-background-dark p-6 text-center shadow-2xl md:p-8" id="success-view">
+<div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-success/10 text-success">
+<span class="material-symbols-outlined !text-4xl" data-icon="check_circle">check_circle</span>
+</div>
+<h1 class="text-[#0d141b] dark:text-slate-50 tracking-light text-[24px] font-bold leading-tight pb-2 pt-2">Update Complete</h1>
+<p class="text-[#4a5568] dark:text-slate-400 text-base font-normal leading-normal pb-4">
+              The update was successful. <strong class="font-bold text-lg text-[#0d141b] dark:text-slate-50">2,345</strong> rows have been updated.
+            </p>
+<div class="flex w-full flex-col items-stretch gap-3 pt-4">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-slate-50 text-base font-bold leading-normal tracking-[0.015em] transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark w-full">
+<span class="truncate">Close</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>
