@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Management - Data Update Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f77ff",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1823",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#1f2937] dark:text-gray-300">
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex w-64 flex-col bg-[#001529] text-gray-300">
+<div class="flex items-center gap-3 p-4 border-b border-gray-700/50 h-16">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Company logo, an abstract blue and white geometric shape" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYe4lqele9Vu0x2A3AlDxHgGBJbciSIRCdOLCvSHwkDBM63jbJli7e-rMyjgkwZFCjKGaZhpRDiI738VVq1n2VfkHXTzB9Ah66xPxXzMxkaU1_x_810IOm6gkeLSQfOxvzqePCrybsjzWaooeaPjr2rZfB1PJL2X4JUvwkzPBwQ90SvLagonacU7rnxLkpjbYNQKi2iPrZ3aIkTJ0poLA6BpepbY2MmaEp3n7Tn1L73jFZIMgo_fZtqB-VFvKpLBshY-aXFpBf_Dlz");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">Data Update Portal</h1>
+<p class="text-gray-400 text-sm font-normal leading-normal">Admin Panel</p>
+</div>
+</div>
+<nav class="flex-1 px-2 py-4 space-y-2">
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+<span>Dashboard</span>
+</a>
+<div class="space-y-1">
+<button class="flex items-center w-full gap-3 px-3 py-2 text-sm font-medium text-left rounded-md hover:bg-white/10">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span>Admin</span>
+</button>
+<div class="pl-7 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-xl">file_upload</span>
+<span>Templates</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md bg-primary text-white" href="#">
+<span class="material-symbols-outlined text-xl fill">group</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-xl">receipt_long</span>
+<span>Audit Logs</span>
+</a>
+</div>
+</div>
+</div>
+</nav>
+</aside>
+<div class="flex flex-1 flex-col overflow-y-auto">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-background-light dark:bg-background-dark border-gray-200 dark:border-gray-700 px-6">
+<!-- Breadcrumbs -->
+<div class="flex items-center text-sm">
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary" href="#">Home</a>
+<span class="mx-2 text-gray-400 dark:text-gray-500">/</span>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary" href="#">Admin</a>
+<span class="mx-2 text-gray-400 dark:text-gray-500">/</span>
+<span class="font-medium text-gray-800 dark:text-gray-200">Users</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex h-9 w-9 items-center justify-center rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+<button class="flex h-9 w-9 items-center justify-center rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-xl">person</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 p-6">
+<!-- PageHeading -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+<div class="flex flex-col">
+<h1 class="text-2xl font-bold text-gray-900 dark:text-white">User Management</h1>
+<p class="text-sm text-gray-500 dark:text-gray-400">Manage user roles, permissions, and access to templates.</p>
+</div>
+</div>
+<!-- ToolBar -->
+<div class="mb-6 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-4">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full h-10 pl-10 pr-4 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Search users by name or email..." type="search"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex h-10 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-lg">sync</span>
+<span>Sync from Entra ID</span>
+</button>
+<button class="flex h-10 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md bg-primary px-4 text-sm font-medium text-white hover:bg-primary/90">
+<span class="material-symbols-outlined text-lg fill">person_add</span>
+<span class="truncate">Invite User</span>
+</button>
+</div>
+</div>
+<!-- Users Table -->
+<div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50">
+<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+<thead class="bg-gray-50 dark:bg-gray-700/50">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">User</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Global Role</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Template Permissions</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Last Active</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Status</th>
+<th class="relative px-6 py-3" scope="col">
+<span class="sr-only">Actions</span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+<!-- Sample Row 1 -->
+<tr>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 flex-shrink-0">
+<img class="h-10 w-10 rounded-full" data-alt="Avatar of John Smith" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqzmv6q8GH6-VakspRvs1nEQRmS7E1OJVQnXgIyR1Hm13sNoQCGG8mUPQHT5uUf4wwpGNbE-LH-9pS-61fhbiYw77OLKXJltyl0aIF3IPjGkVC2wRoQmMXvjADx9KG5wD6BMkNLCSpuc7UKaXsr0bpE5rhhSwiuNm_YfIbAIh1ywsEaVgoSJP5DWrasmAuwY6FlaMFomx77OzQ3XsG-lJtthmmXmLZnw-ZlLEBCsD5b7_H2ii4auP3hrpcO9UzIF_7u6jZDaJGJlov"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-gray-900 dark:text-white">John Smith</div>
+<div class="text-sm text-gray-500 dark:text-gray-400">john.smith@example.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center rounded-md bg-cyan-100 dark:bg-cyan-900/50 px-2.5 py-0.5 text-sm font-medium text-cyan-800 dark:text-cyan-300">Global Submitter</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="inline-flex items-center text-sm text-primary hover:underline">
+<span>5 Templates</span>
+<span class="material-symbols-outlined ml-1 text-base">more_horiz</span>
+</button>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">2 hours ago</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<label class="relative inline-flex cursor-pointer items-center">
+<input checked="" class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-gray-200 dark:bg-gray-600 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-2 peer-focus:ring-blue-300"></div>
+</label>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-500 dark:text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Sample Row 2 -->
+<tr>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 flex-shrink-0">
+<img class="h-10 w-10 rounded-full" data-alt="Avatar of Sarah Johnson" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUHDloqRo5amJOejAq6u6ElAsn_KFCsZgU8AuAr3KLLwet9tRLcvHgfYPT2btQf40XKTlZYa-m8owcYP7yhUl2-AsdvV6F0rA0cRjHVLZxItyAlaW3n77nQvGvakKOUSy8v0Ee79OB_PUGfIMTW4NasRhx8UH2ZCPeP9bMHJS9PfOOiJYjaBhEPRKhCHUaPlaNocjGjbox_XYot9QToEv9V26ynAI_c6pcXDgqmPHFnZc6fCFmABMUPPETSGnlTFMD00m9AUPH79sv"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-gray-900 dark:text-white">Sarah Johnson</div>
+<div class="text-sm text-gray-500 dark:text-gray-400">s.johnson@example.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center rounded-md bg-green-100 dark:bg-green-900/50 px-2.5 py-0.5 text-sm font-medium text-green-800 dark:text-green-300">Global Approver</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="inline-flex items-center text-sm text-primary hover:underline">
+<span>12 Templates</span>
+<span class="material-symbols-outlined ml-1 text-base">more_horiz</span>
+</button>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">1 day ago</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<label class="relative inline-flex cursor-pointer items-center">
+<input checked="" class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-gray-200 dark:bg-gray-600 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-2 peer-focus:ring-blue-300"></div>
+</label>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-500 dark:text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Sample Row 3 -->
+<tr>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 flex-shrink-0">
+<img class="h-10 w-10 rounded-full" data-alt="Avatar of David Lee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzQ4MpEblHDzeITaRP9yo4ovaha2tGc7TgdbNyJa-OPpw3h-88exmpHWTEIWgDGUlr1Aq-hvTorqbPsi5pUSUQl5pAMji-GiKXer5qiRdyX32gr-GFDr2iyRPF3oy-AiiJV53WOI8bGkM0Jy_nrRifez9qtFiykdNdM__uRA9BNcoCbF4UJRioImo7m6ASZyjxhJkNFdETCCudEKJE3CVmH1cyjcwiFuReCVsapiMcOldl5OldWFwUfRvJiAVlEfvInXQpfLwhG6KS"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-gray-900 dark:text-white">David Lee</div>
+<div class="text-sm text-gray-500 dark:text-gray-400">david.lee@example.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center rounded-md bg-cyan-100 dark:bg-cyan-900/50 px-2.5 py-0.5 text-sm font-medium text-cyan-800 dark:text-cyan-300">Template Submitter</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="inline-flex items-center text-sm text-primary hover:underline">
+<span>2 Templates</span>
+<span class="material-symbols-outlined ml-1 text-base">more_horiz</span>
+</button>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">5 days ago</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<label class="relative inline-flex cursor-pointer items-center">
+<input class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-gray-200 dark:bg-gray-600 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-2 peer-focus:ring-blue-300"></div>
+</label>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-500 dark:text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Sample Row 4 -->
+<tr>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 flex-shrink-0">
+<img class="h-10 w-10 rounded-full" data-alt="Avatar of Mary Jones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyMtGTILZm1ZuXsyO5T7RdPKbvXvkV_wwUAOR0Mr0HFLx9u9jU82rMIN_LNH2WxIA9RscwppszJZioxPYTkgAJ2nFBCgpzGM1-1MmUeAFcaqRw0eWjoQueCt0pMfATLIZxzp_oxBMc2JgNvXseZZSiWYoE81-FbUPLfinG3fkLMBDMtrQHSaFJ_Lxb3oL9CgkuiQsDgrunkojF5I7-fK9LRTSLdMGv4DXu9UFSSdP-2m_Cga4t9h9y3_O22xB9-2yYIKNq2IhKEOhp"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-gray-900 dark:text-white">Mary Jones</div>
+<div class="text-sm text-gray-500 dark:text-gray-400">mary.j@example.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center rounded-md bg-blue-100 dark:bg-blue-900/50 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:text-blue-300">Admin</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="text-sm text-gray-500 dark:text-gray-400">All Templates</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">1 hour ago</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<label class="relative inline-flex cursor-pointer items-center">
+<input checked="" class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-gray-200 dark:bg-gray-600 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-2 peer-focus:ring-blue-300"></div>
+</label>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-500 dark:text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- More rows as needed -->
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between mt-4 px-2">
+<span class="text-sm text-gray-600 dark:text-gray-400">Showing 1 to 8 of 24 results</span>
+<div class="flex items-center space-x-1">
+<button class="flex items-center justify-center h-8 w-8 rounded-md border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-md bg-primary text-white">1</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">2</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">3</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-md border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

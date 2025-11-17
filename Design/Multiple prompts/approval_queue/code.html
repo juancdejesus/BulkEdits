@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Approval Queue - Data Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1b79f3",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101822",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<div class="flex h-screen flex-col justify-between bg-[#001529] text-white w-52">
+<div class="flex flex-col gap-4 py-4">
+<div class="flex items-center gap-3 px-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Company logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJzDbFyUnkS-r2vRBGSNHddPZ7hVFfGexX8Sz23vS8ahGun-FLnwAwFK29jWpkdklxqIu8yU-UFgs1ldD7zlqD9hOX2OyglfT1P2wwsIQfMI288KiU_3wllzzZZGbvNys4nqYE6_p9V-eYirezoUzSTThtaoKwrBcLyLQ8_wQE96HYU56wfdA3giynoIHZzgQTfhqrvcYvXPsJLdxVeo_VdvEUBqwIlYdRDIzN6uhem_DED1xyy8FSn_7M6ZEEGX2LLWiukRPFbqlp");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">Data Portal</h1>
+<p class="text-gray-400 text-sm font-normal leading-normal">Law Firm Inc.</p>
+</div>
+</div>
+<div class="flex flex-col gap-1 px-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-gray-300">dashboard</span>
+<p class="text-gray-300 text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-gray-300">description</span>
+<p class="text-gray-300 text-sm font-medium leading-normal">Templates</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary" href="#">
+<span class="material-symbols-outlined text-white">task_alt</span>
+<p class="text-white text-sm font-medium leading-normal">Approvals</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-gray-300">history</span>
+<p class="text-gray-300 text-sm font-medium leading-normal">History</p>
+</a>
+</div>
+</div>
+<div class="p-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-gray-300">logout</span>
+<p class="text-gray-300 text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex flex-1 flex-col">
+<!-- Top Header -->
+<header class="flex h-14 items-center justify-between border-b border-gray-200 bg-white dark:bg-background-dark dark:border-gray-700 px-6">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap items-center gap-2">
+<a class="text-[#496d9c] text-sm font-medium leading-normal" href="#">Home</a>
+<span class="text-[#496d9c] text-sm font-medium leading-normal">/</span>
+<span class="text-[#0d131c] dark:text-white text-sm font-medium leading-normal">Approvals</span>
+</div>
+<!-- Toolbar -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+</span>
+<p class="text-sm font-medium text-[#0d131c] dark:text-gray-300">3 Pending Approvals</p>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<main class="flex-1 p-6 bg-background-light dark:bg-background-dark">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 mb-4">
+<p class="text-[#0d131c] dark:text-white text-3xl font-bold leading-tight">Approval Queue</p>
+</div>
+<!-- Tabs -->
+<div class="pb-3">
+<div class="flex border-b border-[#cedae8] dark:border-gray-700 gap-8">
+<a class="flex items-center gap-2 border-b-[3px] border-b-primary text-[#0d131c] dark:text-white pb-3 pt-2" href="#">
+<p class="text-sm font-bold leading-normal">Pending</p>
+<span class="text-xs font-semibold text-white bg-primary rounded-full px-2 py-0.5">3</span>
+</a>
+<a class="flex items-center gap-2 border-b-[3px] border-b-transparent text-[#496d9c] dark:text-gray-400 pb-3 pt-2" href="#">
+<p class="text-sm font-bold leading-normal">Approved by Me</p>
+<span class="text-xs font-semibold text-gray-600 bg-gray-200 dark:bg-gray-600 dark:text-gray-200 rounded-full px-2 py-0.5">45</span>
+</a>
+<a class="flex items-center gap-2 border-b-[3px] border-b-transparent text-[#496d9c] dark:text-gray-400 pb-3 pt-2" href="#">
+<p class="text-sm font-bold leading-normal">Rejected</p>
+<span class="text-xs font-semibold text-gray-600 bg-gray-200 dark:bg-gray-600 dark:text-gray-200 rounded-full px-2 py-0.5">2</span>
+</a>
+</div>
+</div>
+<!-- Accordion for Requests -->
+<div class="flex flex-col gap-4 mt-6">
+<!-- Request 1 - Expanded -->
+<div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<details open="">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+<div class="flex items-center gap-4">
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white">Job #1244</h3>
+<span class="text-xs font-semibold text-red-700 bg-red-100 dark:text-red-200 dark:bg-red-900/50 px-2.5 py-1 rounded-full">Urgent</span>
+</div>
+<div class="flex items-center gap-4">
+<p class="text-sm text-yellow-600 dark:text-yellow-400">2 days ago</p>
+<div class="flex items-center gap-2">
+<img class="rounded-full size-8" data-alt="User avatar for David Lee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb387YpBnZc5xXAH_z_ZZ1RC3lcZl5Ohs-Q22_e8rrT25g6-DlA9cx2hrkJ0-G9g0UDmb9EdX03y1O7fkrg_m4MYuMasTgF4kxx8JFhJH3a-M3NLTxfYtTFW8JYU1ETZFb1Xm7H5knQz0vLlADDGryOnneJ9qTMwHHRCsxAnSX97GqINHm-XgzIKEBuXUe6OETyczzjI73ubggRQctkK3pXEvDQJ_YOSVJOVLq_33kHbOtYmeqRmLZUYUBDgV520kqu79syKSx1xmC"/>
+<div class="flex flex-col">
+<p class="text-sm font-medium text-gray-700 dark:text-gray-200">David Lee</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Template Submitter</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400 transform transition-transform duration-200">expand_more</span>
+</div>
+</summary>
+<div class="border-t border-gray-200 dark:border-gray-700 p-4">
+<div class="flex border-b border-gray-200 dark:border-gray-700 text-sm">
+<button class="py-2 px-4 border-b-2 border-primary text-primary font-semibold">Overview</button>
+<button class="py-2 px-4 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">Validation Results</button>
+<button class="py-2 px-4 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">Data Preview</button>
+</div>
+<div class="py-4">
+<div class="grid grid-cols-2 gap-6 text-sm">
+<div class="col-span-1 space-y-3">
+<div class="grid grid-cols-3 gap-2 items-center">
+<p class="font-semibold text-gray-600 dark:text-gray-300 col-span-1">Template:</p>
+<p class="text-gray-800 dark:text-gray-100 col-span-2">Client Matter Update</p>
+</div>
+<div class="grid grid-cols-3 gap-2 items-center">
+<p class="font-semibold text-gray-600 dark:text-gray-300 col-span-1">File:</p>
+<p class="text-primary truncate col-span-2">CM_Updates_2023-10-27.xlsx</p>
+</div>
+<div class="grid grid-cols-3 gap-2 items-center">
+<p class="font-semibold text-gray-600 dark:text-gray-300 col-span-1">Rows:</p>
+<p class="text-gray-800 dark:text-gray-100 col-span-2">2,500</p>
+</div>
+<div class="grid grid-cols-3 gap-2 items-center">
+<p class="font-semibold text-gray-600 dark:text-gray-300 col-span-1">Impact:</p>
+<p class="text-gray-800 dark:text-gray-100 col-span-2">Updates existing client and matter records in ERP.</p>
+</div>
+</div>
+<div class="col-span-1">
+<label class="block font-semibold text-gray-600 dark:text-gray-300 mb-1">Requestor Comments</label>
+<p class="text-gray-700 dark:text-gray-200 p-2 border border-gray-200 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-700 min-h-[80px]">Please prioritize this update for the month-end closing process. All data has been double-checked by the finance team.</p>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Approval Comments</label>
+<textarea class="w-full text-sm p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 dark:text-white focus:ring-primary focus:border-primary" placeholder="Add optional comments..." rows="2"></textarea>
+<div class="flex justify-end gap-3 mt-4">
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-red-600 bg-white border border-red-600 rounded-md hover:bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-400 dark:hover:bg-red-900/20">
+<span class="material-symbols-outlined text-base">close</span>
+                                            Reject
+                                        </button>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-yellow-600 bg-white border border-yellow-500 rounded-md hover:bg-yellow-50 dark:bg-gray-800 dark:text-yellow-400 dark:border-yellow-400 dark:hover:bg-yellow-900/20">
+<span class="material-symbols-outlined text-base">edit</span>
+                                            Request Changes
+                                        </button>
+<button class="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-primary rounded-md hover:bg-primary/90">
+<span class="material-symbols-outlined text-base">check</span>
+                                            Approve
+                                        </button>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Request 2 - Collapsed -->
+<div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+<details>
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+<div class="flex items-center gap-4">
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white">Job #1243</h3>
+<span class="text-xs font-semibold text-blue-700 bg-blue-100 dark:text-blue-200 dark:bg-blue-900/50 px-2.5 py-1 rounded-full">Standard</span>
+</div>
+<div class="flex items-center gap-4">
+<p class="text-sm text-gray-500 dark:text-gray-400">5 days ago</p>
+<div class="flex items-center gap-2">
+<img class="rounded-full size-8" data-alt="User avatar for Susan Chen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo6KmviY8I7ti_HrRVKSXH6q4YOUA7uKTtpoT3b9oLYif7EjHIN2JPSJ5jHPCV9Gpxzmk_eGwN6x92ILSCLI6EjzLaI2AqlfsyERgTuKcK4roIJyfw6Ef78hQm-6H5aozDwYRRuOyxMGr9E3eEg7Hec9znfudzfq6gD-Mz4bMhYBingMBe5_zw52Kl4z3tdHLCmXrx6ec4x19WoarNIhu8VGr-qIZ-J-p4WgHYyAV0TNcil0rCHUr9KNWqPywmmyvHdzzEYNhoH-yG"/>
+<div class="flex flex-col">
+<p class="text-sm font-medium text-gray-700 dark:text-gray-200">Susan Chen</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Template Submitter</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400 transform transition-transform duration-200">expand_more</span>
+</div>
+</summary>
+<!-- Collapsed content would be loaded here upon expansion -->
+</details>
+</div>
+<!-- Request 3 - Collapsed -->
+<div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+<details>
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+<div class="flex items-center gap-4">
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white">Job #1242</h3>
+<span class="text-xs font-semibold text-blue-700 bg-blue-100 dark:text-blue-200 dark:bg-blue-900/50 px-2.5 py-1 rounded-full">Standard</span>
+</div>
+<div class="flex items-center gap-4">
+<p class="text-sm text-gray-500 dark:text-gray-400">6 days ago</p>
+<div class="flex items-center gap-2">
+<img class="rounded-full size-8" data-alt="User avatar for Michael Brown" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2h8rRdXfuk6PAMhUjZpaRYu1e53tUjNMMgGfm2exC6FvKl1FS0j7hH4AxLTLtp6wwgN4JqQjhHmtHCByTSLxKh2iKb4tGePkFzZjzbeDoiijPby5njgFA3RUcY2uvBBNhG4FLgR-rM4sOPYkvy2MbqdCw-_Q-mzZe01O8rACqTBmpXLFcene-x03CaEbbUSik-YLY9ol19nFan6eao4_hk5AyA0PzWgZbnDuqZRvzPS_bklp7YIWZMm8tQADZSXTGDbaFGZ6TnahD"/>
+<div class="flex flex-col">
+<p class="text-sm font-medium text-gray-700 dark:text-gray-200">Michael Brown</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Template Submitter</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400 transform transition-transform duration-200">expand_more</span>
+</div>
+</summary>
+<!-- Collapsed content would be loaded here upon expansion -->
+</details>
+</div>
+<!-- Empty State Example (commented out) -->
+<!--
+                    <div class="flex flex-col items-center justify-center text-center p-12 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-xl mt-6">
+                      <span class="material-symbols-outlined text-6xl text-green-500" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+                      <h4 class="text-xl font-semibold text-gray-800 dark:text-white mt-4">All caught up!</h4>
+                      <p class="text-gray-500 dark:text-gray-400 mt-1">No pending approvals at this time.</p>
+                    </div>
+                    -->
+</div>
+</main>
+</div>
+</div>
+<script>
+      // Simple script to rotate the chevron on details/summary click
+      document.querySelectorAll('details').forEach((detail) => {
+        detail.addEventListener('toggle', (event) => {
+          const summary = event.target.querySelector('summary');
+          const icon = summary.querySelector('.material-symbols-outlined');
+          if (event.target.open) {
+            icon.style.transform = 'rotate(180deg)';
+          } else {
+            icon.style.transform = 'rotate(0deg)';
+          }
+        });
+      });
+    </script>
+</body></html>

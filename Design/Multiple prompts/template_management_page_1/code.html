@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Template Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#147aff",
+            "background-light": "#f5f7f8",
+            "background-dark": "#0f1823",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen w-full">
+<aside class="flex w-[250px] flex-col justify-between bg-[#001529] p-4 text-white">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Law firm logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCExB_dtX-la3LcDulDepecdWJQZzxEhAufcNBJ6HNanFYMAbvqe0Q1_R9nErYD7cib2grtn-Nh5QKZTnny6TJJKyr1dXaCdOcJN1wDyS_PsXYbET_7G9N71XDBWXq2C_sZeA6AKAoDZybHX7jEepnqSeqd9wJKe_4IeGloEZvRAjnvk_Z1sMTqqeqe5_X6zteRC7IrPVKk_KeyCuA1OR8sDX1TSbxL1J8KkCcHZr9IIOwpX6cjQNkAvmAyuSK0EzXEpK7J7z6E4Zxx");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">Data Portal</h1>
+<p class="text-[#8da9ce] text-sm font-normal leading-normal">LexiCorp Law Firm</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">dashboard</span>
+<p class="text-white text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">update</span>
+<p class="text-white text-sm font-medium leading-normal">Updates</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary" href="#">
+<span class="material-symbols-outlined text-white text-2xl">admin_panel_settings</span>
+<p class="text-white text-sm font-medium leading-normal">Admin</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">bar_chart</span>
+<p class="text-white text-sm font-medium leading-normal">Reports</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">help_outline</span>
+<p class="text-white text-sm font-medium leading-normal">Help</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">logout</span>
+<p class="text-white text-sm font-normal leading-normal">Logout</p>
+</a>
+</div>
+</aside>
+<div class="flex flex-1 flex-col overflow-y-auto">
+<header class="flex h-16 flex-shrink-0 items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark px-6">
+<div class="flex items-center gap-2">
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal" href="#">Home</a>
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">/</span>
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal" href="#">Admin</a>
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">/</span>
+<span class="text-slate-800 dark:text-white text-sm font-medium leading-normal">Templates</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<main class="flex-1 p-6">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight">Template Management</h1>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-4 py-6">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="material-symbols-outlined">cloud_upload</span>
+<span class="truncate">Upload New Template</span>
+</button>
+<div class="flex items-center rounded-lg bg-slate-200 dark:bg-slate-800 p-1">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-5 text-slate-600 dark:text-slate-400 text-sm font-semibold leading-normal">
+<span class="truncate">Grid</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-5 bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold leading-normal">
+<span class="truncate">List</span>
+</button>
+</div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center justify-between gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+<div class="flex items-center gap-4 min-w-[300px] flex-shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/50">
+<span class="material-symbols-outlined text-3xl text-green-600 dark:text-green-400">description</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Client Bulk Update</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500 dark:text-slate-400">v2.1</span>
+<span class="rounded bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">Client</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 flex-grow justify-center">
+<span class="inline-flex items-center rounded-full bg-green-100 px-3 py-0.5 text-sm font-medium text-green-800 dark:bg-green-900/50 dark:text-green-300">
+<span class="mr-1 size-2 rounded-full bg-green-600"></span>
+Active
+</span>
+<span class="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
+<span class="material-symbols-outlined text-base">task_alt</span> Requires Approval
+</span>
+</div>
+<div class="flex items-center gap-4 flex-shrink-0 justify-end">
+<div class="text-sm">
+<a class="font-medium text-primary hover:underline" href="#">15 submitters</a>
+</div>
+<div class="flex gap-2">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+</li>
+<li class="flex items-center justify-between gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+<div class="flex items-center gap-4 min-w-[300px] flex-shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/50">
+<span class="material-symbols-outlined text-3xl text-purple-600 dark:text-purple-400">description</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Vendor Registration</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500 dark:text-slate-400">v1.0</span>
+<span class="rounded bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">Vendor</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 flex-grow justify-center">
+<span class="inline-flex items-center rounded-full bg-green-100 px-3 py-0.5 text-sm font-medium text-green-800 dark:bg-green-900/50 dark:text-green-300">
+<span class="mr-1 size-2 rounded-full bg-green-600"></span>
+Active
+</span>
+</div>
+<div class="flex items-center gap-4 flex-shrink-0 justify-end">
+<div class="text-sm">
+<a class="font-medium text-primary hover:underline" href="#">10 submitters</a>
+</div>
+<div class="flex gap-2">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+</li>
+<li class="flex items-center justify-between gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+<div class="flex items-center gap-4 min-w-[300px] flex-shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900/50">
+<span class="material-symbols-outlined text-3xl text-orange-600 dark:text-orange-400">description</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Matter Update</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500 dark:text-slate-400">v1.5</span>
+<span class="rounded bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-800 dark:bg-orange-900/50 dark:text-orange-300">Matter</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 flex-grow justify-center">
+<span class="inline-flex items-center rounded-full bg-green-100 px-3 py-0.5 text-sm font-medium text-green-800 dark:bg-green-900/50 dark:text-green-300">
+<span class="mr-1 size-2 rounded-full bg-green-600"></span>
+Active
+</span>
+<span class="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
+<span class="material-symbols-outlined text-base">task_alt</span> Requires Approval
+</span>
+</div>
+<div class="flex items-center gap-4 flex-shrink-0 justify-end">
+<div class="text-sm">
+<a class="font-medium text-primary hover:underline" href="#">22 submitters</a>
+</div>
+<div class="flex gap-2">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+</li>
+<li class="flex items-center justify-between gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+<div class="flex items-center gap-4 min-w-[300px] flex-shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/50">
+<span class="material-symbols-outlined text-3xl text-green-600 dark:text-green-400">description</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Client Closure</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500 dark:text-slate-400">v1.1</span>
+<span class="rounded bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">Client</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 flex-grow justify-center">
+<span class="inline-flex items-center rounded-full bg-green-100 px-3 py-0.5 text-sm font-medium text-green-800 dark:bg-green-900/50 dark:text-green-300">
+<span class="mr-1 size-2 rounded-full bg-green-600"></span>
+Active
+</span>
+<span class="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
+<span class="material-symbols-outlined text-base">task_alt</span> Requires Approval
+</span>
+</div>
+<div class="flex items-center gap-4 flex-shrink-0 justify-end">
+<div class="text-sm">
+<a class="font-medium text-primary hover:underline" href="#">6 submitters</a>
+</div>
+<div class="flex gap-2">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+</li>
+<li class="flex items-center justify-between gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 opacity-60">
+<div class="flex items-center gap-4 min-w-[300px] flex-shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/50">
+<span class="material-symbols-outlined text-3xl text-purple-600 dark:text-purple-400">description</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Vendor Tax Update</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500 dark:text-slate-400">v1.0</span>
+<span class="rounded bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">Vendor</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 flex-grow justify-center">
+<span class="inline-flex items-center rounded-full bg-slate-100 px-3 py-0.5 text-sm font-medium text-slate-800 dark:bg-slate-700/50 dark:text-slate-300">
+<span class="mr-1 size-2 rounded-full bg-slate-500"></span>
+Inactive
+</span>
+</div>
+<div class="flex items-center gap-4 flex-shrink-0 justify-end">
+<div class="text-sm">
+<a class="font-medium text-primary hover:underline" href="#">1 submitter</a>
+</div>
+<div class="flex gap-2">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+</li>
+<li class="flex items-center justify-between gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+<div class="flex items-center gap-4 min-w-[300px] flex-shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900/50">
+<span class="material-symbols-outlined text-3xl text-orange-600 dark:text-orange-400">description</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Matter Billing</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500 dark:text-slate-400">v1.2</span>
+<span class="rounded bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-800 dark:bg-orange-900/50 dark:text-orange-300">Matter</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 flex-grow justify-center">
+<span class="inline-flex items-center rounded-full bg-green-100 px-3 py-0.5 text-sm font-medium text-green-800 dark:bg-green-900/50 dark:text-green-300">
+<span class="mr-1 size-2 rounded-full bg-green-600"></span>
+Active
+</span>
+</div>
+<div class="flex items-center gap-4 flex-shrink-0 justify-end">
+<div class="text-sm">
+<a class="font-medium text-primary hover:underline" href="#">33 submitters</a>
+</div>
+<div class="flex gap-2">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+</li>
+</ul>
+</main>
+</div>
+</div>
+</body></html>

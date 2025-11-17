@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Template Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#147aff",
+            "background-light": "#f5f7f8",
+            "background-dark": "#0f1823",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex w-[250px] flex-col justify-between bg-[#001529] p-4 text-white">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Law firm logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCExB_dtX-la3LcDulDepecdWJQZzxEhAufcNBJ6HNanFYMAbvqe0Q1_R9nErYD7cib2grtn-Nh5QKZTnny6TJJKyr1dXaCdOcJN1wDyS_PsXYbET_7G9N71XDBWXq2C_sZeA6AKAoDZybHX7jEepnqSeqd9wJKe_4IeGloEZvRAjnvk_Z1sMTqqeqe5_X6zteRC7IrPVKk_KeyCuA1OR8sDX1TSbxL1J8KkCcHZr9IIOwpX6cjQNkAvmAyuSK0EzXEpK7J7z6E4Zxx");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">Data Portal</h1>
+<p class="text-[#8da9ce] text-sm font-normal leading-normal">LexiCorp Law Firm</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">dashboard</span>
+<p class="text-white text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">update</span>
+<p class="text-white text-sm font-medium leading-normal">Updates</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary" href="#">
+<span class="material-symbols-outlined text-white text-2xl">admin_panel_settings</span>
+<p class="text-white text-sm font-medium leading-normal">Admin</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">bar_chart</span>
+<p class="text-white text-sm font-medium leading-normal">Reports</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">help_outline</span>
+<p class="text-white text-sm font-medium leading-normal">Help</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">logout</span>
+<p class="text-white text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex flex-1 flex-col overflow-y-auto">
+<!-- Header -->
+<header class="flex h-16 flex-shrink-0 items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark px-6">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2">
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal" href="#">Home</a>
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">/</span>
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal" href="#">Admin</a>
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">/</span>
+<span class="text-slate-800 dark:text-white text-sm font-medium leading-normal">Templates</span>
+</div>
+<!-- ToolBar -->
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-6">
+<!-- PageHeading -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight">Template Management</h1>
+</div>
+<!-- Action Bar with ButtonGroup -->
+<div class="flex flex-wrap items-center justify-between gap-4 py-6">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="material-symbols-outlined">cloud_upload</span>
+<span class="truncate">Upload New Template</span>
+</button>
+<div class="flex items-center rounded-lg bg-slate-200 dark:bg-slate-800 p-1">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-5 bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold leading-normal">
+<span class="truncate">Grid</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-5 text-slate-600 dark:text-slate-400 text-sm font-semibold leading-normal">
+<span class="truncate">List</span>
+</button>
+</div>
+</div>
+<!-- Templates Grid -->
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+<!-- Card 1: Client Bulk Update -->
+<div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="absolute top-0 right-0 h-8 w-24 translate-x-1/4 translate-y-1/4 rotate-45 transform bg-green-500"></div>
+<p class="absolute top-3 right-0.5 text-xs font-bold text-white">Active</p>
+<div class="p-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/50">
+<span class="material-symbols-outlined text-3xl text-green-600 dark:text-green-400">description</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Client Bulk Update</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500 dark:text-slate-400">v2.1</span>
+<span class="rounded bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">Client</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 space-y-3 border-t border-slate-200 dark:border-slate-800 pt-4 text-sm">
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Requires Approval</span> <span class="text-green-600 font-semibold">Yes</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Status</span> <span class="text-green-600 font-semibold">Active</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Total Uses</span> <span class="font-medium text-slate-800 dark:text-slate-200">1,204</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Active Users</span> <span class="font-medium text-slate-800 dark:text-slate-200">42</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Last Updated</span> <span class="font-medium text-slate-800 dark:text-slate-200">2023-10-26</span></div>
+</div>
+<div class="mt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-4">
+<div class="flex items-center -space-x-2">
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2BF2dDK0p9gtnyiar-iSR1iGrHcaafLvWHOERNRF2WVTpV9MUpcJX-yMHBEfjKfacusX5EuCuNKQi9OVmNlSbgyhczx_aoH45HuIQq7T1MWgv5wVjjnuHjQebfdkR6NTz4DnwKl15Qa8nK_tisrISPzScVtNvmO-7q2NytegQ3_1eFUGabh_ST5liY3-2tkisV4WuCrIsWpZ88vvCsiEGOfQBAqRrDBo4e8UlEPgDJbogw-hQhSmNwjLkeJQwpqQj0vkFb17A4pNj"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVzy1vN0nJpFeBwq1UNiAAc5-h8Bp-cjlu2wAN6xaGWcrSK_A_tHSLsHRkmG6--Y3kU0ZX9rdTKVLjnvWqJ-2BLZWhaGhxRuJiugR068vdLqQnxmTcN2OZsoHyCuS5WjTysi8MowOAJbXdeO-RDoHjjd3jKg2MI4PbHXPWJLhkGds4PoZjcuaERzYflrf4Cd8LnW1A7Qij4WQN_bczFO3gqXtriDKsbS4Pu0SS5xeBlVXshBkusnck78PMmbWaGPOT5SZJwP2h8xzX"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQKDFR8C7dFXyBYG4POQTU5u_KM0tYy4ZP-CdbYXbWC__O51Xp3U4cA70_OM50cva8HRuOhujweXGTDhfoTX8VCplxyyZSKf3KoF2kozUJjI3RO8O5JG11KDHAH10E_KY21CQoE3o1qWYxeHpr3sDy_Bt0kuDNwNGLxsZkDorNOam2P2kFfe8WjznyyJTFd8g5gHAZPhc8KI4_AzwZ3dxtCqEhtRTSU2d9lGEKU4bzsfp20dCNhJ5OQy91WKExF0k7fwG2cLjUA9-a"/>
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-900 text-xs font-semibold text-slate-600 dark:text-slate-300">+12</div>
+</div>
+<div class="text-sm">
+<a class="font-medium text-primary hover:underline" href="#">15 submitters</a> | <a class="font-medium text-primary hover:underline" href="#">3 approvers</a>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+<!-- Card 2: Vendor Registration -->
+<div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="absolute top-0 right-0 h-8 w-24 translate-x-1/4 translate-y-1/4 rotate-45 transform bg-green-500"></div>
+<p class="absolute top-3 right-0.5 text-xs font-bold text-white">Active</p>
+<div class="p-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/50"><span class="material-symbols-outlined text-3xl text-purple-600 dark:text-purple-400">description</span></div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Vendor Registration</h3>
+<div class="flex items-center gap-2"><span class="text-xs text-slate-500 dark:text-slate-400">v1.0</span><span class="rounded bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">Vendor</span></div>
+</div>
+</div>
+</div>
+<div class="mt-4 space-y-3 border-t border-slate-200 dark:border-slate-800 pt-4 text-sm">
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Requires Approval</span> <span class="font-medium text-slate-800 dark:text-slate-200">No</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Status</span> <span class="text-green-600 font-semibold">Active</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Total Uses</span> <span class="font-medium text-slate-800 dark:text-slate-200">850</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Active Users</span> <span class="font-medium text-slate-800 dark:text-slate-200">35</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Last Updated</span> <span class="font-medium text-slate-800 dark:text-slate-200">2023-09-15</span></div>
+</div>
+<div class="mt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-4">
+<div class="flex items-center -space-x-2">
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN6Ra0ga7rCmSq2xyRoPlSoES9yAtpeBKspV8YwHs0ti3a31b-LEYyaMARV_GjhC5RxGDSqYRY-5jH37qIKON3VjooLwPmlrPkzf2C6Jo9ytjk0tP-9BYRDpXL_PGmXb_UPUBmOosYoGZKvZYL1gOpCCs0LD-d5BAJF28CEH3vnbg12wKS1p8qOCtM9jSypyNmEaspxzyELvUG2RfDCGj5OAvCDJ28PMX6OQTeeQP0-CyrpKIaEQ_LdfvNFkRBG20TEocQnYsyCJKc"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3_-tebuiPQrvfXv2u3rOzG-EgX9w-EMHNkZaTSlU7w0hpFMrYbtWKAgGahzDyFk_vuoPLYTWJQXzqhlGKC6ZsUMqDPFfN7-BmO3Xuzc1p2y6S_tsTg5m_50JJps68iYV_JWilwR2S4BdcJMS-XlWhJxGGLRvQRzqWtXc6eGJFkIfsEB1FnjQIxYUHhSiFsWtOjjW4hQW6YrJimjesoi_XcuAl6PHw5NyNBF3a7nAarT2nd9-vQm0C2qHFl2jVgzBroK4E1FkZGYYY"/>
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-900 text-xs font-semibold text-slate-600 dark:text-slate-300">+8</div>
+</div>
+<div class="text-sm"><a class="font-medium text-primary hover:underline" href="#">10 submitters</a></div>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+<!-- Card 3: Matter Update -->
+<div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="absolute top-0 right-0 h-8 w-24 translate-x-1/4 translate-y-1/4 rotate-45 transform bg-green-500"></div>
+<p class="absolute top-3 right-0.5 text-xs font-bold text-white">Active</p>
+<div class="p-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900/50"><span class="material-symbols-outlined text-3xl text-orange-600 dark:text-orange-400">description</span></div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Matter Update</h3>
+<div class="flex items-center gap-2"><span class="text-xs text-slate-500 dark:text-slate-400">v1.5</span><span class="rounded bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-800 dark:bg-orange-900/50 dark:text-orange-300">Matter</span></div>
+</div>
+</div>
+</div>
+<div class="mt-4 space-y-3 border-t border-slate-200 dark:border-slate-800 pt-4 text-sm">
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Requires Approval</span> <span class="text-green-600 font-semibold">Yes</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Status</span> <span class="text-green-600 font-semibold">Active</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Total Uses</span> <span class="font-medium text-slate-800 dark:text-slate-200">512</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Active Users</span> <span class="font-medium text-slate-800 dark:text-slate-200">28</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Last Updated</span> <span class="font-medium text-slate-800 dark:text-slate-200">2023-10-01</span></div>
+</div>
+<div class="mt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-4">
+<div class="flex items-center -space-x-2">
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgDw0vnJvMO2a8TEHR68wWmH4KwfAcIYCkL3-JRm2I_PWfEhd5bqzk9YNvAaQiuSNCbJuOAYPtz8PT582LWrj9ncpOgD6ymJgp492WmDPNLDFlnZcjlBTWPblNeWPzrH8YUKoTygwmm136LCbCDleho_pwW0zonhv1GWpZq8_470Rhg4P0QAN9MVFBdBm9YknbpNePcOzWBK7AAcysTXcvjdjWacSP-i2Ohz_-KTElGHsGlAU6R8Tgd7Ozy8QKz4REtgEmhkM19WPB"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 7" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV0QNd2HzyamEzBFOfbmZGyiF08xxqrff2J_0QwOYux6tuQ_mAcIT_Nw3-_dZZsnbyOopVe-DxoN5FIHbzD3ouXHJabYty0jf_XmBL-qc-qDi6J0HTHvi76vDAoSH4Rh06ZcghoIC8vxhKCVu05kiNhsbEOcY7GNh9r08Gm_Xw0i1gQXP0XWHZdBdKoENYJQ3ZUTPZJ-Vgs37zDjPkOlogkC2PbkS6-cVu_g3M4Becn8lucBsY9gV9Ve7TLGVF5Zqd8w_cBBCrfISi"/>
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-900 text-xs font-semibold text-slate-600 dark:text-slate-300">+20</div>
+</div>
+<div class="text-sm"><a class="font-medium text-primary hover:underline" href="#">22 submitters</a> | <a class="font-medium text-primary hover:underline" href="#">2 approvers</a></div>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+<!-- Card 4: Client Closure -->
+<div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="absolute top-0 right-0 h-8 w-24 translate-x-1/4 translate-y-1/4 rotate-45 transform bg-green-500"></div>
+<p class="absolute top-3 right-0.5 text-xs font-bold text-white">Active</p>
+<div class="p-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/50"><span class="material-symbols-outlined text-3xl text-green-600 dark:text-green-400">description</span></div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Client Closure</h3>
+<div class="flex items-center gap-2"><span class="text-xs text-slate-500 dark:text-slate-400">v1.1</span><span class="rounded bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">Client</span></div>
+</div>
+</div>
+</div>
+<div class="mt-4 space-y-3 border-t border-slate-200 dark:border-slate-800 pt-4 text-sm">
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Requires Approval</span> <span class="text-green-600 font-semibold">Yes</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Status</span> <span class="text-green-600 font-semibold">Active</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Total Uses</span> <span class="font-medium text-slate-800 dark:text-slate-200">98</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Active Users</span> <span class="font-medium text-slate-800 dark:text-slate-200">15</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Last Updated</span> <span class="font-medium text-slate-800 dark:text-slate-200">2023-08-20</span></div>
+</div>
+<div class="mt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-4">
+<div class="flex items-center -space-x-2">
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeMezGUTkxt1bWXV_D5b_lbm148pRSq6w9Rl-MI6EmeKb6TGu81SyRTBNm9ygbnVXbKLyG562ZNYLgq0ycGGApIXJBjRUb08e7qcpTamipXTai09yCTEBxORTEnK_O6bCVIjAqUNvl_FEcEn1tTiG5UlHT-Hxh6L_I-dqnt2uV3G18O3HzzFc1cgSDrBWWyAHkyS0w_oojvqAW4EBtNEmL31VZqD1qdy6DzRyAMlKdQh2M-bJiT8Rhjn11lDYZP-zrNHSVwzWouuHK"/>
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-900 text-xs font-semibold text-slate-600 dark:text-slate-300">+5</div>
+</div>
+<div class="text-sm"><a class="font-medium text-primary hover:underline" href="#">6 submitters</a> | <a class="font-medium text-primary hover:underline" href="#">1 approver</a></div>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+<!-- Card 5: Vendor Tax Update (Inactive) -->
+<div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 opacity-60">
+<div class="absolute top-0 right-0 h-8 w-24 translate-x-1/4 translate-y-1/4 rotate-45 transform bg-slate-500"></div>
+<p class="absolute top-3 right-0.5 text-xs font-bold text-white">Inactive</p>
+<div class="p-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/50"><span class="material-symbols-outlined text-3xl text-purple-600 dark:text-purple-400">description</span></div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Vendor Tax Update</h3>
+<div class="flex items-center gap-2"><span class="text-xs text-slate-500 dark:text-slate-400">v1.0</span><span class="rounded bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">Vendor</span></div>
+</div>
+</div>
+</div>
+<div class="mt-4 space-y-3 border-t border-slate-200 dark:border-slate-800 pt-4 text-sm">
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Requires Approval</span> <span class="font-medium text-slate-800 dark:text-slate-200">No</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Status</span> <span class="text-slate-500 font-semibold">Inactive</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Total Uses</span> <span class="font-medium text-slate-800 dark:text-slate-200">320</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Active Users</span> <span class="font-medium text-slate-800 dark:text-slate-200">0</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Last Updated</span> <span class="font-medium text-slate-800 dark:text-slate-200">2023-05-11</span></div>
+</div>
+<div class="mt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-4">
+<div class="flex items-center -space-x-2">
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 9" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSJAT9sVSAhhk1aLYB5CEAapCH_7pgeaCBjzT2oWTZ-s2RdlL2e3C--1Q_dS8EQpXLyQ9i12-9p402CpW3okxnofyDgqfm1NMKooym3oGk0JHdvLUGlN-LVEqLRy2plbH13wPEKYxbVgKnV2GwbfGe79E3w_sSwZE4pMAghtihDWvmK1AnlJQ171KIq1FSi85Vses6R1Vt-fm4QK1JsAU3ILPUqfvJNrkcEDbf8tTlkhHHLX4GxUKjUSv2YMc2kjAlaAGI_zKKXjqf"/>
+</div>
+<div class="text-sm"><a class="font-medium text-primary hover:underline" href="#">1 submitter</a></div>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+<!-- Card 6: Matter Billing -->
+<div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="absolute top-0 right-0 h-8 w-24 translate-x-1/4 translate-y-1/4 rotate-45 transform bg-green-500"></div>
+<p class="absolute top-3 right-0.5 text-xs font-bold text-white">Active</p>
+<div class="p-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900/50"><span class="material-symbols-outlined text-3xl text-orange-600 dark:text-orange-400">description</span></div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-white">Matter Billing</h3>
+<div class="flex items-center gap-2"><span class="text-xs text-slate-500 dark:text-slate-400">v1.2</span><span class="rounded bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-800 dark:bg-orange-900/50 dark:text-orange-300">Matter</span></div>
+</div>
+</div>
+</div>
+<div class="mt-4 space-y-3 border-t border-slate-200 dark:border-slate-800 pt-4 text-sm">
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Requires Approval</span> <span class="font-medium text-slate-800 dark:text-slate-200">No</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Status</span> <span class="text-green-600 font-semibold">Active</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Total Uses</span> <span class="font-medium text-slate-800 dark:text-slate-200">2,540</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Active Users</span> <span class="font-medium text-slate-800 dark:text-slate-200">65</span></div>
+<div class="flex justify-between items-center"><span class="text-slate-600 dark:text-slate-400">Last Updated</span> <span class="font-medium text-slate-800 dark:text-slate-200">2023-10-22</span></div>
+</div>
+<div class="mt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-4">
+<div class="flex items-center -space-x-2">
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWFS_pF3ZGJBD4pDFmheGdMQCEM_lZWmXweywQc1wr7BJtk9Udw7sNBoj9Q0gyt9J8F49fjSGVlgf5dRvnlNkGGtHG2dM-nMmMmQoPD-_BHaHTAe54hU81UWM-c1W3We3H2_bMu870ldOPgupEuESnFSpkrbcYc4V9gstMGvFjokIm1HFh567PhePUcwc5PlOp4D6HT2DeU2Hl9T40c4VYQfGnyHNMDd6N_k_I8XYNe8196X1e_O4KZWHD5ypUwYgug4waTc6QUUm8"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 11" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaWWnih09XLUf2ij3ellTX9A2cGsy5dp1OOtzxGnHqMzSWa-NhYZtiGFqMWBu42bXznUOK5z-wY5zlUMR5Jxd8SO4vrDXLG8n5SdaNHS_Hb92lFo3qoDzbpZGhc-uhc7BasRMAuRUy4SW8GfHJq0iwAPSPQ5bTFr5lDR2fSxuNUoOc_QxrCgjCMWGUCnj7L83-5S7stR1SHWn-yAl0pIbT9R5iZeSrCjRL8u9JkRd0kxvQYTjcLbmo3fWvK8SJpx5Q1EK_BpPZw_Of"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0wQRX5MNeffFC1NyXyjsOo443MJVzUlY3lJ1OL_FGu1Pw8-SL3IFUwPuFBkWeecZ55UFPskkf7sEvHmxNfZfVqch1Ug5k0XlnYke77fJEkMkGSthvyn3wqBBNvClQnIBYazIxmdHhYQ0W33NinJz9jQYt7-efwE5AROoDDcvAvYgoe5D9mSOh9RY4f8qINDupyeynzgy8AOmrH-Fz710kuBkPG-wta7dFQbSx4DmWHB-rK0L25DzZ3r0fjBTRUbg2DXztNhbghGJk"/>
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-900 text-xs font-semibold text-slate-600 dark:text-slate-300">+30</div>
+</div>
+<div class="text-sm"><a class="font-medium text-primary hover:underline" href="#">33 submitters</a></div>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3">
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Edit</button>
+<button class="text-sm font-semibold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-md">Manage Users</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

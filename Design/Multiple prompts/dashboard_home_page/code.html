@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data Update Portal - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f77ff",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1823",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex w-64 flex-col bg-[#001529] text-white transition-all duration-300">
+<div class="flex h-16 shrink-0 items-center gap-3 px-6">
+<div class="flex size-8 items-center justify-center rounded-lg bg-primary">
+<span class="material-symbols-outlined text-xl text-white">data_thresholding</span>
+</div>
+<h1 class="text-base font-semibold leading-normal text-white">Data Update Portal</h1>
+</div>
+<nav class="flex flex-1 flex-col gap-2 overflow-y-auto px-4 py-2">
+<a class="flex items-center gap-3 rounded-lg bg-primary px-3 py-2 text-white" href="#">
+<span class="material-symbols-outlined text-2xl">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-300 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-2xl">cloud_upload</span>
+<p class="text-sm font-medium leading-normal">Upload</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-300 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-2xl">folder_open</span>
+<p class="text-sm font-medium leading-normal">Jobs</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-300 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-2xl">check_box</span>
+<p class="text-sm font-medium leading-normal">Approvals</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-300 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-2xl">description</span>
+<p class="text-sm font-medium leading-normal">Templates</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-300 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-1 border-t border-white/10 p-4">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-300 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-2xl">help_outline</span>
+<p class="text-sm font-medium leading-normal">Help</p>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="flex flex-1 flex-col">
+<!-- TopNavBar -->
+<header class="flex h-16 shrink-0 items-center justify-between border-b border-gray-200 bg-white px-6 dark:border-gray-700 dark:bg-gray-800">
+<!-- Breadcrumbs -->
+<div class="flex gap-2">
+<a class="text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" href="#">Home</a>
+<span class="text-sm font-medium text-gray-500 dark:text-gray-400">/</span>
+<span class="text-sm font-medium text-gray-800 dark:text-gray-100">Dashboard</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-full bg-background-light text-gray-600 hover:bg-gray-200 dark:bg-background-dark dark:text-gray-300 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-full bg-background-light text-gray-600 hover:bg-gray-200 dark:bg-background-dark dark:text-gray-300 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-2xl">help_outline</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar of John Smith" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAyvO8dEbiL0_-6snr-tnpdQwsVDCKfE3lcZyKUY7gqAl9BhWk5iLFI9pXlqDlgWkhmC1OZoemI30jKyxfQw2xCgj768N1mQRxZUIkAqG6imhRVHvxuxu93TMTlb3TUzrZRacK-vmGdhv55KkHbJDvfemwPnuUalnesul0bo1J5dQMe0Mkq2SGQ9axisPUAvv__yyq44XrOXcpNtlI02ESjWzpmSpnutgTIAOeLaNuWIXOVozCXNfmNdcCztB3NmpQsXeoB2FYiKcru");'></div>
+<div class="flex flex-col text-sm">
+<p class="font-semibold text-gray-800 dark:text-gray-100">John Smith</p>
+<p class="text-gray-500 dark:text-gray-400">Global Submitter</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 overflow-y-auto p-6">
+<!-- PageHeading -->
+<div class="mb-6">
+<p class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">Dashboard</p>
+</div>
+<!-- Stats -->
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+<div class="flex flex-col gap-2 rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+<p class="text-base font-medium text-gray-600 dark:text-gray-300">My Active Jobs</p>
+<p class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">8</p>
+<p class="text-base font-medium text-green-600 dark:text-green-500">+5.2%</p>
+</div>
+<div class="flex flex-col gap-2 rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+<p class="text-base font-medium text-gray-600 dark:text-gray-300">Pending Approval</p>
+<p class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">3</p>
+<p class="text-base font-medium text-orange-500 dark:text-orange-400">Warning</p>
+</div>
+<div class="flex flex-col gap-2 rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+<p class="text-base font-medium text-gray-600 dark:text-gray-300">Completed This Month</p>
+<p class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">45</p>
+<p class="text-base font-medium text-blue-600 dark:text-blue-500">+15.0%</p>
+</div>
+<div class="flex flex-col gap-2 rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+<p class="text-base font-medium text-gray-600 dark:text-gray-300">Failed Jobs</p>
+<p class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">1</p>
+<p class="text-base font-medium text-red-600 dark:text-red-500">-0.5%</p>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+<!-- Recent Jobs Table -->
+<div class="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800 lg:col-span-2">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Recent Jobs</h3>
+<a class="text-sm font-medium text-primary hover:underline" href="#">View All Jobs</a>
+</div>
+<div class="mt-4 flow-root">
+<div class="-mx-6 -my-2 overflow-x-auto">
+<div class="inline-block min-w-full py-2 align-middle sm:px-6">
+<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+<thead>
+<tr>
+<th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:pl-0" scope="col">Job ID</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white" scope="col">Template</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white" scope="col">Submitted</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white" scope="col">Status</th>
+<th class="relative py-3.5 pl-3 pr-4 sm:pr-0" scope="col">
+<span class="sr-only">Actions</span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-0">JOB-00124</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">Client Matter Update</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">2023-10-27 14:30</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700 dark:bg-blue-900/50 dark:text-blue-300">In Progress</span>
+</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+<a class="text-gray-500 hover:text-primary dark:text-gray-400" href="#"><span class="material-symbols-outlined text-xl">visibility</span></a>
+<a class="ml-4 text-gray-500 hover:text-primary dark:text-gray-400" href="#"><span class="material-symbols-outlined text-xl">download</span></a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-0">JOB-00123</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">Vendor Rate Change</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">2023-10-27 11:15</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700 dark:bg-green-900/50 dark:text-green-300">Completed</span>
+</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+<a class="text-gray-500 hover:text-primary dark:text-gray-400" href="#"><span class="material-symbols-outlined text-xl">visibility</span></a>
+<a class="ml-4 text-gray-500 hover:text-primary dark:text-gray-400" href="#"><span class="material-symbols-outlined text-xl">download</span></a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-0">JOB-00122</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">New GL Accounts</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">2023-10-26 09:00</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-700 dark:bg-red-900/50 dark:text-red-300">Failed</span>
+</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+<a class="text-gray-500 hover:text-primary dark:text-gray-400" href="#"><span class="material-symbols-outlined text-xl">visibility</span></a>
+<a class="ml-4 text-gray-500 hover:text-primary dark:text-gray-400" href="#"><span class="material-symbols-outlined text-xl">download</span></a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-0">JOB-00121</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">Employee Cost Center</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">2023-10-25 17:45</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300">Awaiting Approval</span>
+</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+<a class="text-gray-500 hover:text-primary dark:text-gray-400" href="#"><span class="material-symbols-outlined text-xl">visibility</span></a>
+<a class="ml-4 text-gray-500 hover:text-primary dark:text-gray-400" href="#"><span class="material-symbols-outlined text-xl">download</span></a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-0">JOB-00120</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">Client Address Bulk</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">2023-10-25 16:20</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700 dark:bg-green-900/50 dark:text-green-300">Completed</span>
+</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+<a class="text-gray-500 hover:text-primary dark:text-gray-400" href="#"><span class="material-symbols-outlined text-xl">visibility</span></a>
+<a class="ml-4 text-gray-500 hover:text-primary dark:text-gray-400" href="#"><span class="material-symbols-outlined text-xl">download</span></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Quick Actions</h3>
+<div class="mt-4 flex flex-col gap-4">
+<button class="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary/90">
+<span class="material-symbols-outlined">cloud_upload</span>
+                                Upload New File
+                            </button>
+<button class="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined">download</span>
+                                Download Templates
+                            </button>
+<button class="flex w-full items-center justify-center gap-2 rounded-lg border border-orange-500 bg-orange-50 px-4 py-3 text-sm font-semibold text-orange-600 shadow-sm hover:bg-orange-100 dark:border-orange-500 dark:bg-orange-900/20 dark:text-orange-400 dark:hover:bg-orange-900/40">
+<span class="material-symbols-outlined">checklist</span>
+                                View Approval Queue
+                            </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

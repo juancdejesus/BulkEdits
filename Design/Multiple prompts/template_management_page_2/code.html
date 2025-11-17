@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Template Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#147aff",
+            "background-light": "#f5f7f8",
+            "background-dark": "#0f1823",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }.tooltip {
+        position: relative;
+        display: inline-block;
+    }
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        background-color: #333;
+        color: #fff;
+        text-align: left;
+        border-radius: 6px;
+        padding: 8px 12px;
+        position: absolute;
+        z-index: 10;
+        top: 125%;left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        min-width: 200px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        font-size: 0.875rem;}
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent #333 transparent;
+    }
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }.dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        min-width: 140px;
+        z-index: 20;
+        border: 1px solid #e2e8f0;overflow: hidden;
+    }
+    .dark .dropdown-menu {
+        background-color: #1f2937;border-color: #334155;}
+    .dropdown-menu a {
+        display: block;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        color: #334155;text-decoration: none;
+    }
+    .dark .dropdown-menu a {
+        color: #d1d5db;}
+    .dropdown-menu a:hover {
+        background-color: #f1f5f9;}
+    .dark .dropdown-menu a:hover {
+        background-color: #374151;}
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen w-full">
+<aside class="flex w-[250px] flex-col justify-between bg-[#001529] p-4 text-white">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Law firm logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCExB_dtX-la3LcDulDepecdWJQZzxEhAufcNBJ6HNanFYMAbvqe0Q1_R9nErYD7cib2grtn-Nh5QKZTnny6TJJKyr1dXaCdOcJN1wDyS_PsXYbET_7G9N71XDBWXq2C_sZeA6AKAoDZybHX7jEepnqSeqd9wJKe_4IeGloEZvRAjnvk_Z1sMTqqeqe5_X6zteRC7IrPVKk_KeyCuA1OR8sDX1TSbxL1J8KkCcHZr9IIOwpX6cjQNkAvmAyuSK0EzXEpK7J7z6E4Zxx");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">Data Portal</h1>
+<p class="text-[#8da9ce] text-sm font-normal leading-normal">LexiCorp Law Firm</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">dashboard</span>
+<p class="text-white text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">update</span>
+<p class="text-white text-sm font-medium leading-normal">Updates</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary" href="#">
+<span class="material-symbols-outlined text-white text-2xl">admin_panel_settings</span>
+<p class="text-white text-sm font-medium leading-normal">Admin</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">bar_chart</span>
+<p class="text-white text-sm font-medium leading-normal">Reports</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">help_outline</span>
+<p class="text-white text-sm font-normal leading-normal">Help</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#20334b]/50" href="#">
+<span class="material-symbols-outlined text-white text-2xl">logout</span>
+<p class="text-white text-sm font-normal leading-normal">Logout</p>
+</a>
+</div>
+</aside>
+<div class="flex flex-1 flex-col overflow-y-auto">
+<header class="flex h-16 flex-shrink-0 items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark px-6">
+<div class="flex items-center gap-2">
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal" href="#">Home</a>
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">/</span>
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal" href="#">Admin</a>
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">/</span>
+<span class="text-slate-800 dark:text-white text-sm font-medium leading-normal">Templates</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<main class="flex-1 p-6">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight">Template Management</h1>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-4 py-6">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="material-symbols-outlined">cloud_upload</span>
+<span class="truncate">Upload New Template</span>
+</button>
+<div class="flex items-center rounded-lg bg-slate-200 dark:bg-slate-800 p-1">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-5 text-slate-600 dark:text-slate-400 text-sm font-semibold leading-normal">
+<span class="truncate">Grid</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-5 bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold leading-normal">
+<span class="truncate">List</span>
+</button>
+</div>
+</div>
+<div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden">
+<div class="grid grid-cols-12 gap-4 items-center px-6 py-4 border-b border-slate-200 dark:border-slate-800 text-sm font-semibold text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/50">
+<div class="col-span-4">Template Name</div>
+<div class="col-span-2">Status</div>
+<div class="col-span-2">Approval</div>
+<div class="col-span-3">Users</div>
+<div class="col-span-1 text-right">Actions</div>
+</div>
+<div class="grid grid-cols-12 gap-4 items-center px-6 py-4 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer group template-row" tabindex="0">
+<div class="col-span-4 flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/50">
+<span class="material-symbols-outlined text-2xl text-green-600 dark:text-green-400">description</span>
+</div>
+<div>
+<h3 class="font-medium text-slate-800 dark:text-white">Client Bulk Update <span class="text-xs text-slate-500 dark:text-slate-400">v2.1</span></h3>
+<span class="rounded bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">Client</span>
+</div>
+</div>
+<div class="col-span-2 text-sm font-medium text-green-600 dark:text-green-400">Active</div>
+<div class="col-span-2 text-sm font-medium text-green-600 dark:text-green-400">Yes</div>
+<div class="col-span-3 flex items-center -space-x-2 tooltip">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2BF2dDK0p9gtnyiar-iSR1iGrHcaafLvWHOERNRF2WVTpV9MUpcJX-yMHBEfjKfacusX5EuCuNKQi9OVmNlSbgyhczx_aoH45HuIQq7T1MWgv5wVjjnuHjQebfdkR6NTz4DnwKl15Qa8nK_tisrISPzScVtNvmO-7q2NytegQ3_1eFUGabh_ST5liY3-2tkisV4WuCrIsWpZ88vvCsiEGOfQBAqRrDBo4e8UlEPgDJbogw-hQhSmNwjLkeJQwpqQj0vkFb17A4pNj"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVzy1vN0nJpFeBwq1UNiAAc5-h8Bp-cjlu2wAN6xaGWcrSK_A_tHSLsHRkmG6--Y3kU0ZX9rdTKVLjnvWqJ-2BLZWhaGhxRuJiugR068vdLqQnxmTcN2OZsoHyCuS5WjTysi8MowOAJbXdeO-RDoHjjd3jKg2MI4PbHXPWJLhkGds4PoZjcuaERzYflrf4Cd8LnW1A7Qij4WQN_bczFO3gqXtriDKsbS4Pu0SS5xeBlVXshBkusnck78PMmbWaGPOT5SZJwP2h8xzX"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQKDFR8C7dFXyBYG4POQTU5u_KM0tYy4ZP-CdbYXbWC__O51Xp3U4cA70_OM50cva8HRuOhujweXGTDhfoTX8VCplxyyZSKf3KoF2kozUJjI3RO8O5JG11KDHAH10E_KY21CQoE3o1qWYxeHpr3sDy_Bt0kuDNwNGLxsZkDorNOam2P2kFfe8WjznyyJTFd8g5gHAZPhc8KI4_AzwZ3dxtCqEhtRTSU2d9lGEKU4bzsfp20dCNhJ5OQy91WKExF0k7fwG2cLjUA9-a"/>
+<div class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-900 text-xs font-semibold text-slate-600 dark:text-slate-300">+12</div>
+<span class="tooltiptext">
+<p class="font-semibold mb-1">Details for Client Bulk Update:</p>
+<p><strong>Total Uses:</strong> 1,204</p>
+<p><strong>Active Users:</strong> 42</p>
+<p><strong>Last Updated:</strong> 2023-10-26</p>
+<p><strong>15 submitters</strong> | <strong>3 approvers</strong></p>
+</span>
+</div>
+<div class="col-span-1 text-right relative dropdown">
+<button class="p-1 rounded-full text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-150 invisible group-hover:visible focus:visible">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+<div class="dropdown-menu">
+<a href="#">Edit Template</a>
+<a href="#">Manage Users</a>
+<a href="#">Duplicate</a>
+<a class="text-red-500 hover:bg-red-50 dark:hover:bg-red-900" href="#">Deactivate</a>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-4 items-center px-6 py-4 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer group template-row" tabindex="0">
+<div class="col-span-4 flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/50">
+<span class="material-symbols-outlined text-2xl text-purple-600 dark:text-purple-400">description</span>
+</div>
+<div>
+<h3 class="font-medium text-slate-800 dark:text-white">Vendor Registration <span class="text-xs text-slate-500 dark:text-slate-400">v1.0</span></h3>
+<span class="rounded bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">Vendor</span>
+</div>
+</div>
+<div class="col-span-2 text-sm font-medium text-green-600 dark:text-green-400">Active</div>
+<div class="col-span-2 text-sm font-medium text-slate-800 dark:text-slate-200">No</div>
+<div class="col-span-3 flex items-center -space-x-2 tooltip">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN6Ra0ga7rCmSq2xyRoPlSoES9yAtpeBKspV8YwHs0ti3a31b-LEYyaMARV_GjhC5RxGDSqYRY-5jH37qIKON3VjooLwPmlrPkzf2C6Jo9ytjk0tP-9BYRDpXL_PGmXb_UPUBmOosYoGZKvZYL1gOpCCs0LD-d5BAJF28CEH3vnbg12wKS1p8qOCtM9jSypyNmEaspxzyELvUG2RfDCGj5OAvCDJ28PMX6OQTeeQP0-CyrpKIaEQ_LdfvNFkRBG20TEocQnYsyCJKc"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3_-tebuiPQrvfXv2u3rOzG-EgX9w-EMHNkZaTSlU7w0hpFMrYbtWKAgGahzDyFk_vuoPLYTWJQXzqhlGKC6ZsUMqDPFfN7-BmO3Xuzc1p2y6S_tsTg5m_50JJps68iYV_JWilwR2S4BdcJMS-XlWhJxGGLRvQRzqWtXc6eGJFkIfsEB1FnjQIxYUHhSiFsWtOjjW4hQW6YrJimjesoi_XcuAl6PHw5NyNBF3a7nAarT2nd9-vQm0C2qHFl2jVgzBroK4E1FkZGYYY"/>
+<div class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-900 text-xs font-semibold text-slate-600 dark:text-slate-300">+8</div>
+<span class="tooltiptext">
+<p class="font-semibold mb-1">Details for Vendor Registration:</p>
+<p><strong>Total Uses:</strong> 850</p>
+<p><strong>Active Users:</strong> 35</p>
+<p><strong>Last Updated:</strong> 2023-09-15</p>
+<p><strong>10 submitters</strong></p>
+</span>
+</div>
+<div class="col-span-1 text-right relative dropdown">
+<button class="p-1 rounded-full text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-150 invisible group-hover:visible focus:visible">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+<div class="dropdown-menu">
+<a href="#">Edit Template</a>
+<a href="#">Manage Users</a>
+<a href="#">Duplicate</a>
+<a class="text-red-500 hover:bg-red-50 dark:hover:bg-red-900" href="#">Deactivate</a>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-4 items-center px-6 py-4 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer group template-row" tabindex="0">
+<div class="col-span-4 flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900/50">
+<span class="material-symbols-outlined text-2xl text-orange-600 dark:text-orange-400">description</span>
+</div>
+<div>
+<h3 class="font-medium text-slate-800 dark:text-white">Matter Update <span class="text-xs text-slate-500 dark:text-slate-400">v1.5</span></h3>
+<span class="rounded bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-800 dark:bg-orange-900/50 dark:text-orange-300">Matter</span>
+</div>
+</div>
+<div class="col-span-2 text-sm font-medium text-green-600 dark:text-green-400">Active</div>
+<div class="col-span-2 text-sm font-medium text-green-600 dark:text-green-400">Yes</div>
+<div class="col-span-3 flex items-center -space-x-2 tooltip">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgDw0vnJvMO2a8TEHR68wWmH4KwfAcIYCkL3-JRm2I_PWfEhd5bqzk9YNvAaQiuSNCbJuOAYPtz8PT582LWrj9ncpOgD6ymJgp492WmDPNLDFlnZcjlBTWPblNeWPzrH8YUKoTygwmm136LCbCDleho_pwW0zonhv1GWpZq8_470Rhg4P0QAN9MVFBdBm9YknbpNePcOzWBK7AAcysTXcvjdjWacSP-i2Ohz_-KTElGHsGlAU6R8Tgd7Ozy8QKz4REtgEmhkM19WPB"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 7" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV0QNd2HzyamEzBFOfbmZGyiF08xxqrff2J_0QwOYux6tuQ_mAcIT_Nw3-_dZZsnbyOopVe-DxoN5FIHbzD3ouXHJabYty0jf_XmBL-qc-qDi6J0HTHvi76vDAoSH4Rh06ZcghoIC8vxhKCVu05kiNhsbEOcY7GNh9r08Gm_Xw0i1gQXP0XWHZdBdKoENYJQ3ZUTPZJ-Vgs37zDjPkOlogkC2PbkS6-cVu_g3M4Becn8lucBsY9gV9Ve7TLGVF5Zqd8w_cBBCrfISi"/>
+<div class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-900 text-xs font-semibold text-slate-600 dark:text-slate-300">+20</div>
+<span class="tooltiptext">
+<p class="font-semibold mb-1">Details for Matter Update:</p>
+<p><strong>Total Uses:</strong> 512</p>
+<p><strong>Active Users:</strong> 28</p>
+<p><strong>Last Updated:</strong> 2023-10-01</p>
+<p><strong>22 submitters</strong> | <strong>2 approvers</strong></p>
+</span>
+</div>
+<div class="col-span-1 text-right relative dropdown">
+<button class="p-1 rounded-full text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-150 invisible group-hover:visible focus:visible">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+<div class="dropdown-menu">
+<a href="#">Edit Template</a>
+<a href="#">Manage Users</a>
+<a href="#">Duplicate</a>
+<a class="text-red-500 hover:bg-red-50 dark:hover:bg-red-900" href="#">Deactivate</a>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-4 items-center px-6 py-4 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer group template-row" tabindex="0">
+<div class="col-span-4 flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/50">
+<span class="material-symbols-outlined text-2xl text-green-600 dark:text-green-400">description</span>
+</div>
+<div>
+<h3 class="font-medium text-slate-800 dark:text-white">Client Closure <span class="text-xs text-slate-500 dark:text-slate-400">v1.1</span></h3>
+<span class="rounded bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">Client</span>
+</div>
+</div>
+<div class="col-span-2 text-sm font-medium text-green-600 dark:text-green-400">Active</div>
+<div class="col-span-2 text-sm font-medium text-green-600 dark:text-green-400">Yes</div>
+<div class="col-span-3 flex items-center -space-x-2 tooltip">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeMezGUTkxt1bWXV_D5b_lbm148pRSq6w9Rl-MI6EmeKb6TGu81SyRTBNm9ygbnVXbKLyG562ZNYLgq0ycGGApIXJBjRUb08e7qcpTamipXTai09yCTEBxORTEnK_O6bCVIjAqUNvl_FEcEn1tTiG5UlHT-Hxh6L_I-dqnt2uV3G18O3HzzFc1cgSDrBWWyAHkyS0w_oojvqAW4EBtNEmL31VZqD1qdy6DzRyAMlKdQh2M-bJiT8Rhjn11lDYZP-zrNHSVwzWouuHK"/>
+<div class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-900 text-xs font-semibold text-slate-600 dark:text-slate-300">+5</div>
+<span class="tooltiptext">
+<p class="font-semibold mb-1">Details for Client Closure:</p>
+<p><strong>Total Uses:</strong> 98</p>
+<p><strong>Active Users:</strong> 15</p>
+<p><strong>Last Updated:</strong> 2023-08-20</p>
+<p><strong>6 submitters</strong> | <strong>1 approver</strong></p>
+</span>
+</div>
+<div class="col-span-1 text-right relative dropdown">
+<button class="p-1 rounded-full text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-150 invisible group-hover:visible focus:visible">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+<div class="dropdown-menu">
+<a href="#">Edit Template</a>
+<a href="#">Manage Users</a>
+<a href="#">Duplicate</a>
+<a class="text-red-500 hover:bg-red-50 dark:hover:bg-red-900" href="#">Deactivate</a>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-4 items-center px-6 py-4 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer group template-row opacity-60" tabindex="0">
+<div class="col-span-4 flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/50">
+<span class="material-symbols-outlined text-2xl text-purple-600 dark:text-purple-400">description</span>
+</div>
+<div>
+<h3 class="font-medium text-slate-800 dark:text-white">Vendor Tax Update <span class="text-xs text-slate-500 dark:text-slate-400">v1.0</span></h3>
+<span class="rounded bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">Vendor</span>
+</div>
+</div>
+<div class="col-span-2 text-sm font-medium text-slate-500">Inactive</div>
+<div class="col-span-2 text-sm font-medium text-slate-800 dark:text-slate-200">No</div>
+<div class="col-span-3 flex items-center -space-x-2 tooltip">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 9" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSJAT9sVSAhhk1aLYB5CEAapCH_7pgeaCBjzT2oWTZ-s2RdlL2e3C--1Q_dS8EQpXLyQ9i12-9p402CpW3okxnofyDgqfm1NMKooym3oGk0JHdvLUGlN-LVEqLRy2plbH13wPEKYxbVgKnV2GwbfGe79E3w_sSwZE4pMAghtihDWvmK1AnlJQ171KIq1FSi85Vses6R1Vt-fm4QK1JsAU3ILPUqfvJNrkcEDbf8tTlkhHHLX4GxUKjUSv2YMc2kjAlaAGI_zKKXjqf"/>
+<span class="tooltiptext">
+<p class="font-semibold mb-1">Details for Vendor Tax Update:</p>
+<p><strong>Total Uses:</strong> 320</p>
+<p><strong>Active Users:</strong> 0</p>
+<p><strong>Last Updated:</strong> 2023-05-11</p>
+<p><strong>1 submitter</strong></p>
+</span>
+</div>
+<div class="col-span-1 text-right relative dropdown">
+<button class="p-1 rounded-full text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-150 invisible group-hover:visible focus:visible">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+<div class="dropdown-menu">
+<a href="#">Edit Template</a>
+<a href="#">Manage Users</a>
+<a href="#">Activate</a>
+<a class="text-red-500 hover:bg-red-50 dark:hover:bg-red-900" href="#">Delete</a>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-4 items-center px-6 py-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer group template-row" tabindex="0">
+<div class="col-span-4 flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900/50">
+<span class="material-symbols-outlined text-2xl text-orange-600 dark:text-orange-400">description</span>
+</div>
+<div>
+<h3 class="font-medium text-slate-800 dark:text-white">Matter Billing <span class="text-xs text-slate-500 dark:text-slate-400">v1.2</span></h3>
+<span class="rounded bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-800 dark:bg-orange-900/50 dark:text-orange-300">Matter</span>
+</div>
+</div>
+<div class="col-span-2 text-sm font-medium text-green-600 dark:text-green-400">Active</div>
+<div class="col-span-2 text-sm font-medium text-slate-800 dark:text-slate-200">No</div>
+<div class="col-span-3 flex items-center -space-x-2 tooltip">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWFS_pF3ZGJBD4pDFmheGdMQCEM_lZWmXweywQc1wr7BJtk9Udw7sNBoj9Q0gyt9J8F49fjSGVlgf5dRvnlNkGGtHG2dM-nMmMmQoPD-_BHaHTAe54hU81UWM-c1W3We3H2_bMu870ldOPgupEuESnFSpkrbcYc4V9gstMGvFjokIm1HFh567PhePUcwc5PlOp4D6HT2DeU2Hl9T40c4VYQfGnyHNMDd6N_k_I8XYNe8196X1e_O4KZWHD5ypUwYgug4waTc6QUUm8"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 11" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaWWnih09XLUf2ij3ellTX9A2cGsy5dp1OOtzxGnHqMzSWa-NhYZtiGFqMWBu42bXznUOK5z-wY5zlUMR5Jxd8SO4vrDXLG8n5SdaNHS_Hb92lFo3qoDzbpZGhc-uhc7BasRMAuRUy4SW8GfHJq0iwAPSPQ5bTFr5lDR2fSxuNUoOc_QxrCgjCMWGUCnj7L83-5S7stR1SHWn-yAl0pIbT9R5iZeSrCjRL8u9JkRd0kxvQYTjcLbmo3fWvK8SJpx5Q1EK_BpPZw_Of"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="User avatar 12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0wQRX5MNeffFC1NyXyjsOo443MJVzUlY3lJ1OL_FGu1Pw8-SL3IFUwPuFBkWeecZ55UFPskkf7sEvHmxNfZfVqch1Ug5k0XlnYke77fJEkMkGSthvyn3wqBBNvClQnIBYazIxmdHhYQ0W33NinJz9jQYt7-efwE5AROoDDcvAvYgoe5D9mSOh9RY4f8qINDupyeynzgy8AOmrH-Fz710kuBkPG-wta7dFQbSx4DmWHB-rK0L25DzZ3r0fjBTRUbg2DXztNhbghGJk"/>
+<div class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-900 text-xs font-semibold text-slate-600 dark:text-slate-300">+30</div>
+<span class="tooltiptext">
+<p class="font-semibold mb-1">Details for Matter Billing:</p>
+<p><strong>Total Uses:</strong> 2,540</p>
+<p><strong>Active Users:</strong> 65</p>
+<p><strong>Last Updated:</strong> 2023-10-22</p>
+<p><strong>33 submitters</strong></p>
+</span>
+</div>
+<div class="col-span-1 text-right relative dropdown">
+<button class="p-1 rounded-full text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-150 invisible group-hover:visible focus:visible">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+<div class="dropdown-menu">
+<a href="#">Edit Template</a>
+<a href="#">Manage Users</a>
+<a href="#">Duplicate</a>
+<a class="text-red-500 hover:bg-red-50 dark:hover:bg-red-900" href="#">Deactivate</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

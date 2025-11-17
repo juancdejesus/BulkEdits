@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audit &amp; Reports - Data Update Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1476ff",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1723",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<aside class="w-[240px] flex-shrink-0 bg-[#0f1824] flex flex-col p-4">
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Law Firm Inc. logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1vOaLFttbidRmI4CDShFVoVqm0MtW_zLl25UQTz99NRAtUtMkAzJi91k0k5ArIlim_kdbJw3sCM0jnSF3nIDQ3O1U0LlTU95QZiZtFG0A9rX8Ig1i4PYu3gkqgKKOSJaH8ik6-g6Zf5dKto1t-wG129NFPMy3hObSpnb8_M5oECVSgWUxuCT-N5gtaAGUL5Sh0hdbWHaQp4fvdVAnAl4v4_aqwVfcoZryVt5g1YxW6MPbD3utVsFX8XjZC-6D9ffNUQvj40wg23Ym");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">Data Update Portal</h1>
+<p class="text-[#8da8ce] text-sm font-normal leading-normal">Law Firm Inc.</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-white/80 hover:bg-[#20324b] hover:text-white rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-white/80 hover:bg-[#20324b] hover:text-white rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<p class="text-sm font-medium leading-normal">Templates</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-white/80 hover:bg-[#20324b] hover:text-white rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">upload_file</span>
+<p class="text-sm font-medium leading-normal">Data Upload</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary text-white" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">admin_panel_settings</span>
+<p class="text-sm font-medium leading-normal">Admin</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-white/80 hover:bg-[#20324b] hover:text-white rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<p class="text-sm font-medium leading-normal">Help</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-white/80 hover:bg-[#20324b] hover:text-white rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-white/80 hover:bg-[#20324b] hover:text-white rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</aside>
+<div class="flex flex-col flex-1 overflow-y-auto">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 dark:border-b-[#20324b] px-6 h-16 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<div class="flex items-center gap-4 text-white">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 items-center">
+<a class="text-zinc-500 dark:text-[#8da8ce] text-sm font-medium leading-normal hover:text-primary" href="#">Home</a>
+<span class="text-zinc-400 dark:text-[#8da8ce] text-sm font-medium leading-normal">/</span>
+<a class="text-zinc-500 dark:text-[#8da8ce] text-sm font-medium leading-normal hover:text-primary" href="#">Admin</a>
+<span class="text-zinc-400 dark:text-[#8da8ce] text-sm font-medium leading-normal">/</span>
+<span class="text-zinc-800 dark:text-white text-sm font-medium leading-normal">Audit</span>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white dark:bg-[#20324b] text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white dark:bg-[#20324b] text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAUP31dZRpA4nZIDTXH_48lN-0ElFrro1KMaylNu_-yZ_Txsn6jz_NpHaBlyMwmkqxEiCdGx5rXYEjsJMsln3kfzt78v_kl9V3hmMoDA9AGMcB4j3xBRVwZW6JM2LhGi8ILTfwvchh98WD04_WBBUrcp6UHuxKkGzGFruuZyWtKVh0LfL8-y_z4ubSx4gJ1sWiVHXuflkOU-tU9PsAOTmWWhawXokrZCLBei_uyqPlBuM1H6XjJ5DAgPCKcTCKbRIjso8lt9cvIsXh4");'></div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 p-6">
+<div class="flex gap-6">
+<!-- Main content area -->
+<div class="flex-grow">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 mb-6">
+<div class="flex min-w-72 flex-col gap-2">
+<p class="text-zinc-900 dark:text-white text-3xl font-bold leading-tight tracking-tight">Audit &amp; Reports</p>
+<p class="text-zinc-600 dark:text-[#8da8ce] text-base font-normal leading-normal">Track all system activities and generate compliance reports.</p>
+</div>
+</div>
+<!-- Tabs -->
+<div class="pb-3">
+<div class="flex border-b border-zinc-200 dark:border-[#2e476b] gap-8">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-zinc-900 dark:text-white pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Audit Logs</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-zinc-500 dark:text-[#8da8ce] hover:text-zinc-800 dark:hover:text-white pb-[13px] pt-4 transition-colors" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Data Changes</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-zinc-500 dark:text-[#8da8ce] hover:text-zinc-800 dark:hover:text-white pb-[13px] pt-4 transition-colors" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">System Reports</p>
+</a>
+</div>
+</div>
+<!-- Filter Panel -->
+<details class="group bg-white dark:bg-[#0f1824] border border-zinc-200 dark:border-[#2e476b] rounded-lg mt-6 open:pb-4" open="">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+<span class="text-base font-semibold text-zinc-800 dark:text-white">Advanced Filters</span>
+<span class="material-symbols-outlined text-zinc-500 dark:text-[#8da8ce] transition-transform duration-200 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 items-end">
+<div class="col-span-1 md:col-span-2 lg:col-span-1 xl:col-span-2">
+<label class="block text-sm font-medium text-zinc-600 dark:text-zinc-300 mb-1.5" for="date-range">Date Range</label>
+<input class="w-full bg-zinc-100 dark:bg-[#20324b] border-zinc-300 dark:border-[#2e476b] text-zinc-800 dark:text-white rounded-md text-sm placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:ring-primary focus:border-primary" id="date-range" type="text" value="2023-10-26 - 2023-11-25"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-zinc-600 dark:text-zinc-300 mb-1.5" for="action-type">Action Type</label>
+<select class="w-full bg-zinc-100 dark:bg-[#20324b] border-zinc-300 dark:border-[#2e476b] text-zinc-800 dark:text-white rounded-md text-sm focus:ring-primary focus:border-primary" id="action-type" multiple="">
+<option>Upload</option>
+<option>Validate</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-zinc-600 dark:text-zinc-300 mb-1.5" for="user">User</label>
+<input class="w-full bg-zinc-100 dark:bg-[#20324b] border-zinc-300 dark:border-[#2e476b] text-zinc-800 dark:text-white rounded-md text-sm placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:ring-primary focus:border-primary" id="user" placeholder="Search user..." type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-zinc-600 dark:text-zinc-300 mb-1.5" for="job-id">Job ID</label>
+<input class="w-full bg-zinc-100 dark:bg-[#20324b] border-zinc-300 dark:border-[#2e476b] text-zinc-800 dark:text-white rounded-md text-sm placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:ring-primary focus:border-primary" id="job-id" placeholder="Enter Job ID" type="text"/>
+</div>
+<div class="col-span-full xl:col-span-3">
+<label class="block text-sm font-medium text-zinc-600 dark:text-zinc-300 mb-1.5">Entity Type</label>
+<div class="flex space-x-1 p-1 bg-zinc-100 dark:bg-[#20324b] rounded-md">
+<button class="flex-1 py-1.5 text-sm font-semibold rounded-md bg-white dark:bg-primary/20 text-primary dark:text-white">All</button>
+<button class="flex-1 py-1.5 text-sm font-semibold rounded-md text-zinc-600 dark:text-zinc-300 hover:bg-white/50 dark:hover:bg-primary/10">Client</button>
+<button class="flex-1 py-1.5 text-sm font-semibold rounded-md text-zinc-600 dark:text-zinc-300 hover:bg-white/50 dark:hover:bg-primary/10">Vendor</button>
+<button class="flex-1 py-1.5 text-sm font-semibold rounded-md text-zinc-600 dark:text-zinc-300 hover:bg-white/50 dark:hover:bg-primary/10">Matter</button>
+</div>
+</div>
+<div class="col-span-full xl:col-span-2 flex justify-end items-end space-x-2 pt-4 xl:pt-0">
+<button class="h-9 px-4 text-sm font-bold bg-zinc-200 dark:bg-[#20324b] text-zinc-800 dark:text-white rounded-lg hover:bg-zinc-300 dark:hover:bg-primary/20">Reset</button>
+<button class="h-9 px-4 text-sm font-bold bg-primary text-white rounded-lg hover:bg-primary/90 flex items-center gap-2">
+<span class="material-symbols-outlined text-base">search</span>
+                                            Apply Filters
+                                        </button>
+</div>
+</div>
+</div>
+</details>
+<!-- Data Table -->
+<div class="mt-6 bg-white dark:bg-[#0f1824] border border-zinc-200 dark:border-[#2e476b] rounded-lg overflow-x-auto">
+<table class="w-full min-w-[1200px] text-sm text-left text-zinc-500 dark:text-zinc-400">
+<thead class="text-xs text-zinc-700 dark:text-zinc-300 uppercase bg-zinc-50 dark:bg-[#20324b]">
+<tr>
+<th class="px-6 py-3" scope="col">Timestamp</th>
+<th class="px-6 py-3" scope="col">User</th>
+<th class="px-6 py-3" scope="col">Action</th>
+<th class="px-6 py-3" scope="col">Entity Type</th>
+<th class="px-6 py-3" scope="col">Job ID</th>
+<th class="px-6 py-3" scope="col">IP Address</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3" scope="col">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-[#0f1824] border-b dark:border-[#2e476b] hover:bg-zinc-50 dark:hover:bg-primary/5">
+<td class="px-6 py-4 text-zinc-800 dark:text-white">2023-11-25 14:30:15</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6" data-alt="Alice avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0MjC2Xp_JD9-ighBNyxQan00mwZ9Kqwt1RgHXf93hl1G3mHtcKmT5soNPb1GERKyOfB7iJtSlizaodqSUXm1TZnyaFrt8_kH5y-3mNFyYRUbdGnhVVBedfgzDulv4HjjNOgBrQllRj8LEX88N1COU_h4ZEt1dyZNWn2t-QC1vEtJe6NIAni2sj86niLQ0ze9nh-IMJ9px6A6aY5VgHT5_IG5BDNyuLemqkLSQc_mUVrmlWluYuamfXfv9zYCdePs-18OYPlR62Ldg");'></div>
+<span class="font-medium text-zinc-800 dark:text-white">Alice</span>
+</div>
+</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900/50 dark:text-blue-300">Execute</span></td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-cyan-800 bg-cyan-100 rounded-full dark:bg-cyan-900/50 dark:text-cyan-300">Vendor</span></td>
+<td class="px-6 py-4"><a class="font-medium text-primary hover:underline" href="#">JOB-55421</a></td>
+<td class="px-6 py-4 font-mono">192.168.1.101</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-green-500"><span class="material-symbols-outlined text-base">check_circle</span>Success</span></td>
+<td class="px-6 py-4"><button class="text-primary hover:underline flex items-center gap-1">View<span class="material-symbols-outlined text-base">open_in_new</span></button></td>
+</tr>
+<tr class="bg-white dark:bg-[#0f1824] border-b dark:border-[#2e476b] hover:bg-zinc-50 dark:hover:bg-primary/5">
+<td class="px-6 py-4 text-zinc-800 dark:text-white">2023-11-25 13:05:49</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6" data-alt="Bob avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRZ4sEgaiE1clo0BP0aA-C9MhbVLTaOCzHqSYvzdagHLYN1YgzxuerhtUnL8eFORwPMXg7tjTPUh79iMC3_o6lB4XV8TBx6ugEZIvCoImQRdBlr22U4-j5iwUSsjzf2wjfg-JgB0i3JH_UdrByrLEYlo3kik9YkqbXwY342izvVlm7OsdnccyZK3gTJhdzAHhdpQOB8Fte4COiXi0OoRXwAuySefNiPtgEID1mjMvi3OJq8wubBlXMgDkKSB2yoULOvhVBVqNCZIF6");'></div>
+<span class="font-medium text-zinc-800 dark:text-white">Bob</span>
+</div>
+</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-red-800 bg-red-100 rounded-full dark:bg-red-900/50 dark:text-red-300">Validate</span></td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-orange-800 bg-orange-100 rounded-full dark:bg-orange-900/50 dark:text-orange-300">Client</span></td>
+<td class="px-6 py-4"><a class="font-medium text-primary hover:underline" href="#">JOB-55419</a></td>
+<td class="px-6 py-4 font-mono">10.0.0.52</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-red-500"><span class="material-symbols-outlined text-base">cancel</span>Error</span></td>
+<td class="px-6 py-4"><button class="text-primary hover:underline flex items-center gap-1">View<span class="material-symbols-outlined text-base">open_in_new</span></button></td>
+</tr>
+<tr class="bg-white dark:bg-[#0f1824] border-b dark:border-[#2e476b] hover:bg-zinc-50 dark:hover:bg-primary/5">
+<td class="px-6 py-4 text-zinc-800 dark:text-white">2023-11-25 11:21:03</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6" data-alt="Charlie avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC20CoGa1xW7WFeGBknYpl3Vzhj-0b8u7PPGBME8D47Kc0-GKMDGgb36j3O9FFECP0Qimnoft6QSF4rreN6Tw2prMTI3TGgZZOxLZmVYc6uKpnNo6Y3cx6Cr2M4tbpV6yQAKAYX2Sf94AKh_nCTa06dkidBnFJcG9xurUdMfXnxY_pX1vVL-b1hg9MfJ_sMzdRZLhG5JYfKXZM3sVO1pglU8otrJkTVI4nizSakgPKNN_WgsMSsd-ishgCUmJ89EVOL2HqoC5hACnvR");'></div>
+<span class="font-medium text-zinc-800 dark:text-white">Charlie</span>
+</div>
+</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-purple-800 bg-purple-100 rounded-full dark:bg-purple-900/50 dark:text-purple-300">Upload</span></td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-orange-800 bg-orange-100 rounded-full dark:bg-orange-900/50 dark:text-orange-300">Client</span></td>
+<td class="px-6 py-4"><a class="font-medium text-primary hover:underline" href="#">JOB-55419</a></td>
+<td class="px-6 py-4 font-mono">192.168.1.103</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-green-500"><span class="material-symbols-outlined text-base">check_circle</span>Success</span></td>
+<td class="px-6 py-4"><button class="text-primary hover:underline flex items-center gap-1">View<span class="material-symbols-outlined text-base">open_in_new</span></button></td>
+</tr>
+<tr class="bg-white dark:bg-[#0f1824] hover:bg-zinc-50 dark:hover:bg-primary/5">
+<td class="px-6 py-4 text-zinc-800 dark:text-white">2023-11-24 18:55:12</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6" data-alt="Alice avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxev6RTsN915vfWs-nkUYbQXdW9Fy759gDm9sq0fhuMgIbN7jgi7jM50wz2wVdDViIPtf47uciBG3WqdPb0CRDTZPa_sAGY99XEDWPaF0rpWQb8IUFpxIoVA4d54d7Ogs72yEY7r6f3TFe9PNNIY8v5azuKgQM3t48zhhbU5eUGOeWmXJ7r7Cz2kgquIOsRVO8LEeqe3dQ3Ev0BJgaem3HDHMRiTJMK17LvXXqdgpQEzZiUe8bbLLL7qnIVvv1Zygb4CTDtXtObUef");'></div>
+<span class="font-medium text-zinc-800 dark:text-white">Alice</span>
+</div>
+</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full dark:bg-green-900/50 dark:text-green-300">Approve</span></td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-indigo-800 bg-indigo-100 rounded-full dark:bg-indigo-900/50 dark:text-indigo-300">Matter</span></td>
+<td class="px-6 py-4"><a class="font-medium text-primary hover:underline" href="#">JOB-55398</a></td>
+<td class="px-6 py-4 font-mono">192.168.1.101</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-green-500"><span class="material-symbols-outlined text-base">check_circle</span>Success</span></td>
+<td class="px-6 py-4"><button class="text-primary hover:underline flex items-center gap-1">View<span class="material-symbols-outlined text-base">open_in_new</span></button></td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<nav aria-label="Table navigation" class="flex items-center justify-between p-4">
+<span class="text-sm font-normal text-zinc-500 dark:text-zinc-400">Showing <span class="font-semibold text-zinc-900 dark:text-white">1-10</span> of <span class="font-semibold text-zinc-900 dark:text-white">1000</span></span>
+<ul class="inline-flex items-center -space-x-px">
+<li><a class="px-3 h-8 ml-0 leading-tight text-zinc-500 bg-white dark:bg-[#20324b] border border-zinc-300 dark:border-[#2e476b] rounded-l-lg hover:bg-zinc-100 dark:hover:bg-primary/20 hover:text-zinc-700 dark:hover:text-white inline-flex items-center" href="#">Previous</a></li>
+<li><a class="px-3 h-8 leading-tight text-zinc-500 bg-white dark:bg-[#20324b] border border-zinc-300 dark:border-[#2e476b] hover:bg-zinc-100 dark:hover:bg-primary/20 hover:text-zinc-700 dark:hover:text-white inline-flex items-center" href="#">1</a></li>
+<li><a aria-current="page" class="px-3 h-8 leading-tight text-zinc-500 bg-primary/20 dark:bg-primary text-primary dark:text-white border border-primary dark:border-primary hover:bg-primary/30 dark:hover:bg-primary/90 hover:text-primary dark:hover:text-white inline-flex items-center" href="#">2</a></li>
+<li><a class="px-3 h-8 leading-tight text-zinc-500 bg-white dark:bg-[#20324b] border border-zinc-300 dark:border-[#2e476b] rounded-r-lg hover:bg-zinc-100 dark:hover:bg-primary/20 hover:text-zinc-700 dark:hover:text-white inline-flex items-center" href="#">Next</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<!-- Right Side Panel -->
+<aside class="w-80 flex-shrink-0">
+<div class="sticky top-20 space-y-6">
+<div class="bg-white dark:bg-[#0f1824] border border-zinc-200 dark:border-[#2e476b] rounded-lg p-5">
+<h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-4">Export Options</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-zinc-600 dark:text-zinc-300 mb-1.5" for="export-date-range">Date Range</label>
+<input class="w-full bg-zinc-100 dark:bg-[#20324b] border-zinc-300 dark:border-[#2e476b] text-zinc-800 dark:text-white rounded-md text-sm placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:ring-primary focus:border-primary" id="export-date-range" type="text" value="Last 30 days"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-zinc-600 dark:text-zinc-300 mb-1.5">Format</label>
+<div class="flex space-x-1 p-1 bg-zinc-100 dark:bg-[#20324b] rounded-md">
+<button class="flex-1 py-1.5 text-sm font-semibold rounded-md bg-white dark:bg-primary/20 text-primary dark:text-white">CSV</button>
+<button class="flex-1 py-1.5 text-sm font-semibold rounded-md text-zinc-600 dark:text-zinc-300 hover:bg-white/50 dark:hover:bg-primary/10">Excel</button>
+<button class="flex-1 py-1.5 text-sm font-semibold rounded-md text-zinc-600 dark:text-zinc-300 hover:bg-white/50 dark:hover:bg-primary/10">PDF</button>
+</div>
+</div>
+<button class="w-full h-10 px-4 text-sm font-bold bg-primary text-white rounded-lg hover:bg-primary/90 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">download</span>
+                                        Generate Report
+                                    </button>
+</div>
+</div>
+<div class="bg-white dark:bg-[#0f1824] border border-zinc-200 dark:border-[#2e476b] rounded-lg p-5">
+<h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-4">Summary</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50">
+<span class="material-symbols-outlined text-blue-500">bolt</span>
+</div>
+<span class="text-sm text-zinc-600 dark:text-zinc-300">Total Actions Today</span>
+</div>
+<span class="text-lg font-bold text-zinc-900 dark:text-white">156</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50">
+<span class="material-symbols-outlined text-green-500">group</span>
+</div>
+<span class="text-sm text-zinc-600 dark:text-zinc-300">Unique Users</span>
+</div>
+<span class="text-lg font-bold text-zinc-900 dark:text-white">12</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/50">
+<span class="material-symbols-outlined text-red-500">error</span>
+</div>
+<span class="text-sm text-zinc-600 dark:text-zinc-300">Failed Actions</span>
+</div>
+<span class="text-lg font-bold text-red-500">2</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</div>
+</div>
+</body></html>

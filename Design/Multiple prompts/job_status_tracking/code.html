@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Job Status Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f77ff",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1823",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        @keyframes spin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        .animate-spin {
+          animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<div class="flex h-screen w-[240px] flex-col bg-[#001529] text-white/80 shrink-0">
+<div class="flex h-16 shrink-0 items-center gap-3 px-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Law Firm Inc. Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-Uz_rWq0tNjvtgepESVWhLe7AlTnfPry__PS3ELDNqRHJPGr7hKhh1htlCT4HKLNH2tzsVfZI5WPk6DehgHvkhS0h7l8EWRE4jqMGq5PVEGsXYGuTsBXaGC_H5R5Dezxn-TLLS1NaDmW29Kl1k5_mmK3tYvOFfdQ24VDZHBUl_YuU062A6rHFoIb9AeulohaKUzWZjazcJA7Zkb-b8eli7SkjFOw-vRwAS4dHaPJ6vzsPZTYtIkzEG6nrXdOJbnoTlY__YuMKgLfQ");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">Admin Portal</h1>
+<p class="text-white/60 text-sm font-normal leading-normal">Law Firm Inc.</p>
+</div>
+</div>
+<div class="flex grow flex-col gap-2 p-3">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 bg-primary text-white" href="#">
+<span class="material-symbols-outlined !font-bold">work</span>
+<p class="text-sm font-medium leading-normal">Jobs</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg py-2 pl-12 pr-3 text-white" href="#">
+<p class="text-sm font-medium leading-normal">All Jobs</p>
+</a>
+</div>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined">description</span>
+<p class="text-sm font-medium leading-normal">Templates</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+<div class="flex flex-col gap-1 p-3">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined">help</span>
+<p class="text-sm font-medium leading-normal">Help</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/10" href="#">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex flex-1 flex-col">
+<!-- Top Header/Toolbar -->
+<header class="flex h-16 shrink-0 items-center justify-between border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark px-6">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Back
+                    </button>
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2">
+<a class="text-gray-500 dark:text-gray-400 text-sm font-medium" href="#">Home</a>
+<span class="text-gray-400 dark:text-gray-500 text-sm">/</span>
+<a class="text-gray-500 dark:text-gray-400 text-sm font-medium" href="#">Jobs</a>
+<span class="text-gray-400 dark:text-gray-500 text-sm">/</span>
+<span class="text-gray-800 dark:text-gray-200 text-sm font-medium">#1247</span>
+</div>
+</div>
+<!-- Toolbar Actions -->
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">help_center</span>
+</button>
+<button class="p-1 rounded-full text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8" data-alt="User Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAa96feXxODt-bo5tPjIgJmdL6dNYv7bl4J0EAOJogqUZ4cf4k7xpKFHX_DAgQ5B37DZvsUKPlhi3Ms6iJ5bIp8tz9m4FFoTUeQRtSDKY6GJuDUBR2bcJpz4ZM2qiRqVSeMPqy_xcXNOLy3r37hxW2s95Y8h5fQ9KvaZpwrUCFCHxG35eJnrSB1kbBGHV3yZd2uH5AlfzOuwfZgE8WEyQj__qGGJsXln8sE7MLDe_1eeDnhdieVOxukR7NnnfJWHhfGlHEHj-YfXqrx");'></div>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 overflow-y-auto p-6">
+<div class="mx-auto max-w-7xl">
+<!-- PageHeading -->
+<p class="text-[#101418] dark:text-gray-100 text-3xl font-bold leading-tight tracking-tight">Job #1247</p>
+<!-- Steps/Chips -->
+<div class="mt-6">
+<div class="flex gap-1 md:gap-3 flex-wrap">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-green-100 dark:bg-green-900/40 pl-3 pr-4">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 !text-[18px]">check_circle</span>
+<p class="text-green-800 dark:text-green-300 text-sm font-medium leading-normal">Submitted</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-green-100 dark:bg-green-900/40 pl-3 pr-4">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 !text-[18px]">check_circle</span>
+<p class="text-green-800 dark:text-green-300 text-sm font-medium leading-normal">Validated</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-green-100 dark:bg-green-900/40 pl-3 pr-4">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 !text-[18px]">check_circle</span>
+<p class="text-green-800 dark:text-green-300 text-sm font-medium leading-normal">Approved</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/20 pl-3 pr-4">
+<span class="material-symbols-outlined text-primary animate-spin !text-[18px]">progress_activity</span>
+<p class="text-primary text-sm font-medium leading-normal">Processing</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-100 dark:bg-gray-800 pl-3 pr-4">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">Completed</p>
+</div>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+<!-- Left Column -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<!-- Job Info Card -->
+<div class="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+<div class="p-6 border-b border-gray-200 dark:border-gray-800 flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<p class="text-lg font-semibold text-primary">Processing</p>
+</div>
+<div class="mt-2 flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6" data-alt="John Smith Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwgUMWHXmO1tVjre495WEa0I_pSaJ2XG1g8K_DlhlmFFC04qmSpOgj3_b0oISi7mpV30g74ZJrFfMw5seimcZGSqzwHZubKt8QON_3yHGc8sdyo12VIBCD9uSsmxLm7X4gU1MyXJyev66tVxnAFFDgwAaUy15kt6Uefb6N-69RSn7vrE6pt_2sr9eu99F5p6Ul6hb3bcPTuIHHVMVJs1uF35nhy6o8DoNFlXa78tioG05LO0jt9jwN1dsVxmzmEDGC0e-B_AMghD-E");'></div>
+<span>Submitted by <strong>John Smith</strong> on Nov 12, 2024 2:45 PM</span>
+</div>
+</div>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 text-sm">
+<div class="flex flex-col"><span class="text-gray-500 dark:text-gray-400">Template</span> <span class="font-medium text-gray-800 dark:text-gray-200">Client Bulk Update v2.1</span></div>
+<div class="flex flex-col"><span class="text-gray-500 dark:text-gray-400">File</span> <span class="font-medium text-gray-800 dark:text-gray-200">client_updates_nov2024.xlsx</span></div>
+<div class="flex flex-col"><span class="text-gray-500 dark:text-gray-400">Total Rows</span> <span class="font-medium text-gray-800 dark:text-gray-200">147</span></div>
+<div class="flex flex-col"><span class="text-gray-500 dark:text-gray-400">Valid Rows</span> <span class="font-medium text-gray-800 dark:text-gray-200">147</span></div>
+<div class="flex flex-col"><span class="text-gray-500 dark:text-gray-400">Approval</span>
+<div class="flex items-center gap-2 mt-1">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6" data-alt="Sarah Johnson Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVZyBaDLKrYQaQ-Tk7vBzS7TY4sUj4X-zcRG9KFFFiJslAwtZGKZT-DgOQ5oolbn17N2Uhdq3ZxXWdnEN0e8NRt_kf-TqNsX2ApNCDVY554gIuJxI0PINjQ-1p4X6PHunerGzxttJ5Jf9bXMiIwP6GAtq8wbt7NJvG05oUXbrEY9ig6h_SxrLM9dTt4zbXjIzUmuRRFvQM9UpkoLXEu-Hu-HVD8Y7bEj9lDUdu4aggUtRYtqfP1La5hgIjleO9yxlAvS3WldSHLfnZ");'></div>
+<span class="font-medium text-gray-800 dark:text-gray-200">Sarah Johnson</span>
+<span class="px-2 py-0.5 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300">Approved</span>
+</div>
+<span class="text-xs text-gray-400 mt-1">Nov 12, 2024 3:10 PM</span>
+</div>
+<div class="flex flex-col"><span class="text-gray-500 dark:text-gray-400">Started</span> <span class="font-medium text-gray-800 dark:text-gray-200">Nov 12, 2024 3:15 PM</span></div>
+<div class="flex flex-col"><span class="text-gray-500 dark:text-gray-400">Est. Completion</span> <span class="font-medium text-gray-800 dark:text-gray-200">Nov 12, 2024 3:20 PM</span></div>
+</div>
+</div>
+<!-- Progress Card -->
+<div class="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6">
+<p class="text-lg font-semibold text-gray-800 dark:text-gray-200">Progress</p>
+<div class="mt-4">
+<div class="flex justify-between mb-1">
+<span class="text-base font-medium text-primary">Processing row 88 of 147</span>
+<span class="text-sm font-medium text-primary">60%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined !text-[18px]">schedule</span>
+<span>Last updated: 2 seconds ago</span>
+<span class="material-symbols-outlined text-primary !text-[18px] animate-spin">sync</span>
+</div>
+</div>
+</div>
+<!-- Right Column - Activity Log -->
+<div class="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6">
+<p class="text-lg font-semibold text-gray-800 dark:text-gray-200">Activity Log</p>
+<div class="mt-6 relative pl-1">
+<!-- Timeline Item 1 -->
+<div class="flex items-start gap-4">
+<div class="absolute left-1.5 top-1.5 w-px h-full bg-gray-200 dark:bg-gray-700"></div>
+<div class="relative z-10">
+<div class="flex items-center justify-center size-3 rounded-full bg-primary ring-4 ring-blue-100 dark:ring-blue-900/50"></div>
+</div>
+<div class="flex-1 -mt-1.5">
+<p class="text-gray-800 dark:text-gray-200 font-medium text-sm">Processing started</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">3:15 PM</p>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="flex items-start gap-4 mt-6">
+<div class="relative z-10">
+<div class="flex items-center justify-center size-3 rounded-full bg-green-500 ring-4 ring-green-100 dark:ring-green-900/50"></div>
+</div>
+<div class="flex-1 -mt-1.5">
+<p class="text-gray-800 dark:text-gray-200 font-medium text-sm">Request approved by Sarah Johnson</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">3:10 PM</p>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="flex items-start gap-4 mt-6">
+<div class="relative z-10">
+<div class="flex items-center justify-center size-3 rounded-full bg-green-500 ring-4 ring-green-100 dark:ring-green-900/50"></div>
+</div>
+<div class="flex-1 -mt-1.5">
+<p class="text-gray-800 dark:text-gray-200 font-medium text-sm">Validation completed successfully</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">2:50 PM</p>
+</div>
+</div>
+<!-- Timeline Item 4 -->
+<div class="flex items-start gap-4 mt-6">
+<div class="relative z-10">
+<div class="flex items-center justify-center size-3 rounded-full bg-primary ring-4 ring-blue-100 dark:ring-blue-900/50"></div>
+</div>
+<div class="flex-1 -mt-1.5">
+<p class="text-gray-800 dark:text-gray-200 font-medium text-sm">File uploaded by John Smith</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">2:45 PM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-8 flex justify-end gap-3">
+<button class="flex items-center justify-center gap-2 h-10 px-4 text-sm font-medium rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined !text-[18px]">refresh</span>
+                           Refresh Status
+                        </button>
+<button class="flex items-center justify-center gap-2 h-10 px-4 text-sm font-medium rounded-lg text-red-600 dark:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30">
+                           Cancel Job
+                        </button>
+<button class="flex items-center justify-center gap-2 h-10 px-4 text-sm font-medium rounded-lg bg-primary text-white hover:bg-primary/90 disabled:bg-gray-300 disabled:cursor-not-allowed dark:disabled:bg-gray-700" disabled="">
+<span class="material-symbols-outlined !text-[18px]">download</span>
+                           Download Results
+                        </button>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

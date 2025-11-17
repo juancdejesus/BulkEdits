@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data Update Portal - Review &amp; Submit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1b79f3",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101822",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex h-full w-[250px] flex-col bg-[#001529] text-white/70">
+<div class="flex flex-col gap-4 p-4">
+<div class="flex items-center gap-3 px-2 py-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Law Firm Inc. logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAC4ShiGRqsOe3FPa3dO98eFvWy2XWdbyhtzmhoLc5B-ZHCsJo1VZdq1Xk4HUKsIYwICmViC9UhG186eVUBN-pZ534-X0vH6nvgJVkbKPD58KV-KJOyLObtPZsLh2o3dj6VUsY9y50D-Hxf__t34IpDEJyuAzDULJ0V2GB4RrNRZHtfHpJVunmuwNKO-CYfNO3uiBAg4kOflcBOktw1yZg4lFUIop8UhHAplxq6n0iLjL_2kEdPlKpemfyZIdPmr9TbDHTU-piqFo6G");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">DataUpdate Portal</h1>
+<p class="text-white/60 text-sm font-normal leading-normal">Law Firm Inc.</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 bg-primary text-white" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">upload_file</span>
+<p class="text-sm font-medium leading-normal">Upload</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">history</span>
+<p class="text-sm font-medium leading-normal">History</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">description</span>
+<p class="text-sm font-medium leading-normal">Templates</p>
+</a>
+</div>
+</div>
+<div class="mt-auto flex flex-col gap-1 p-4">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-screen overflow-y-auto">
+<!-- Header/Toolbar -->
+<header class="flex h-[56px] items-center justify-between border-b border-gray-200 bg-white dark:border-gray-800 dark:bg-background-dark px-6 sticky top-0 z-10">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2">
+<a class="text-[#60728a] dark:text-gray-400 text-sm font-medium leading-normal" href="#">Home</a>
+<span class="text-[#60728a] dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+<a class="text-[#60728a] dark:text-gray-400 text-sm font-medium leading-normal" href="#">Upload</a>
+<span class="text-[#60728a] dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+<span class="text-[#111418] dark:text-gray-200 text-sm font-medium leading-normal">Review</span>
+</div>
+<!-- Toolbar -->
+<div class="flex items-center gap-2">
+<button class="p-2 text-[#111418] dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-[#111418] dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-[#111418] dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-6">
+<div class="mx-auto flex w-full max-w-4xl flex-col gap-6">
+<!-- Page Heading -->
+<p class="text-[#111418] dark:text-white text-3xl font-bold leading-tight tracking-tight">Review &amp; Submit</p>
+<!-- Progress Bar -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-center">
+<div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+<span class="flex size-8 items-center justify-center rounded-full bg-primary text-white">1</span>
+<span class="ml-2">Select Template</span>
+<div class="mx-4 h-0.5 w-16 bg-primary"></div>
+</div>
+<div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+<span class="flex size-8 items-center justify-center rounded-full bg-primary text-white">2</span>
+<span class="ml-2">Upload File</span>
+<div class="mx-4 h-0.5 w-16 bg-primary"></div>
+</div>
+<div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+<span class="flex size-8 items-center justify-center rounded-full bg-primary text-white">3</span>
+<span class="ml-2">Validate Data</span>
+<div class="mx-4 h-0.5 w-16 bg-primary"></div>
+</div>
+<div class="flex items-center text-sm text-primary">
+<span class="flex size-8 items-center justify-center rounded-full border-2 border-primary">4</span>
+<span class="ml-2 font-semibold">Submit</span>
+</div>
+</div>
+</div>
+<!-- Review Summary Card -->
+<div class="w-full rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+<div class="p-6">
+<div class="space-y-8">
+<!-- File Information -->
+<div>
+<h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">File Information</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg">
+<div class="px-4 py-3 bg-gray-50 dark:bg-gray-800/50 font-medium text-gray-600 dark:text-gray-400">Template</div>
+<div class="px-4 py-3 col-span-2 text-gray-800 dark:text-gray-200 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-green-600">file_present</span>
+<span>Client Bulk Update v2.1</span>
+</div>
+<div class="px-4 py-3 bg-gray-50 dark:bg-gray-800/50 font-medium text-gray-600 dark:text-gray-400">Uploaded File</div>
+<div class="px-4 py-3 col-span-2 text-gray-800 dark:text-gray-200">client_updates_nov2024.xlsx (2.3 MB)</div>
+<div class="px-4 py-3 bg-gray-50 dark:bg-gray-800/50 font-medium text-gray-600 dark:text-gray-400">Upload Date</div>
+<div class="px-4 py-3 col-span-2 text-gray-800 dark:text-gray-200">Nov 12, 2024 2:34 PM</div>
+</div>
+</div>
+<!-- Validation Summary -->
+<div>
+<h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Validation Summary</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg">
+<div class="px-4 py-3 bg-gray-50 dark:bg-gray-800/50 font-medium text-gray-600 dark:text-gray-400">Total Rows to Process</div>
+<div class="px-4 py-3 col-span-2 text-gray-800 dark:text-gray-200 font-bold text-base">147</div>
+<div class="px-4 py-3 bg-gray-50 dark:bg-gray-800/50 font-medium text-gray-600 dark:text-gray-400">Validation Status</div>
+<div class="px-4 py-3 col-span-2 text-gray-800 dark:text-gray-200">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-2.5 py-0.5 text-xs font-semibold text-green-800 dark:text-green-300">Passed</span>
+</div>
+<div class="px-4 py-3 bg-gray-50 dark:bg-gray-800/50 font-medium text-gray-600 dark:text-gray-400">Rows Skipped</div>
+<div class="px-4 py-3 col-span-2 text-gray-800 dark:text-gray-200">3</div>
+</div>
+</div>
+<!-- Processing Details -->
+<div>
+<h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Processing Details</h3>
+<div class="flex items-start gap-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/30 p-4 border border-yellow-200 dark:border-yellow-900/50">
+<span class="material-symbols-outlined text-yellow-500 dark:text-yellow-400 mt-0.5">info</span>
+<div class="flex-1">
+<p class="font-semibold text-yellow-800 dark:text-yellow-200">This template requires approval</p>
+<p class="text-sm text-yellow-700 dark:text-yellow-300">Your request will be routed to: Sarah Johnson (Approver). Expected approval time: 1 business day.</p>
+</div>
+</div>
+</div>
+<!-- Impact Summary -->
+<div>
+<h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Impact Summary</h3>
+<div class="rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-4 space-y-4">
+<h4 class="font-medium text-gray-700 dark:text-gray-300">Records to be Updated:</h4>
+<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-lg text-primary">edit</span>
+<span>145 Client records updated</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-lg text-primary">add_circle</span>
+<span>2 New client records created</span>
+</li>
+</ul>
+<div class="flex items-center gap-2 rounded-md bg-yellow-100 dark:bg-yellow-900/30 p-3 text-sm text-yellow-800 dark:text-yellow-200">
+<span class="material-symbols-outlined text-base">warning</span>
+<p>This operation will modify 145 existing records. This action cannot be undone.</p>
+</div>
+</div>
+</div>
+<!-- Comments for Approver -->
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="comments">Comments for Approver (Optional)</label>
+<textarea class="block w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" id="comments" name="comments" placeholder="Add any relevant notes for the approver..." rows="4"></textarea>
+</div>
+<!-- Confirmation Checkbox -->
+<div class="flex items-start">
+<div class="flex h-6 items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary dark:bg-gray-700 dark:border-gray-600" id="confirmation" name="confirmation" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm leading-6">
+<label class="font-medium text-gray-900 dark:text-gray-100" for="confirmation">I confirm that I have reviewed the data and it is accurate.</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-between border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 px-6 py-4 rounded-b-lg">
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md" type="button">Cancel</button>
+<button class="rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" type="button">Back</button>
+</div>
+<button class="rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:text-gray-500 dark:disabled:text-gray-400" type="submit">Submit Request</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
